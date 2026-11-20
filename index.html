@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mark Luis O. Fulinara | Full-Stack Developer &amp; BS IT Student</title>
+  <title>Mark Luis O. Fulinara | Aspiring Full-Stack Developer</title>
   
   <!-- Primary Meta Tags -->
-  <meta name="title" content="Mark Luis O. Fulinara | Full-Stack Developer &amp; BS IT Student">
-  <meta name="description" content="Portfolio of Mark Luis O. Fulinara, a passionate BS Information Technology student and Full-Stack Developer from Tanauan, Batangas, Philippines. Specializing in Web Applications, 3D WebGL, and IoT systems.">
-  <meta name="keywords" content="Mark Luis Fulinara, Full-Stack Developer, BS IT, Web Developer, Batangas, Three.js, ASP.NET, Node.js, Supabase, IoT, ESP32, Portfolio">
+  <meta name="title" content="Mark Luis O. Fulinara | Aspiring Full-Stack Developer">
+  <meta name="description" content="Portfolio of Mark Luis O. Fulinara, an Aspiring Full-Stack Developer and BS IT student from Tanauan, Batangas, Philippines. Specializing in Full-Stack Development, Software Engineering, Backend &amp; REST APIs, Databases, and Cloud Deployment.">
+  <meta name="keywords" content="Mark Luis Fulinara, Aspiring Full-Stack Developer, Software Developer, Full-Stack Development, Software Engineering, Backend Developer, Frontend Developer, REST API, Database Design, PostgreSQL, ASP.NET, Node.js, Batangas">
   <meta name="author" content="Mark Luis O. Fulinara">
   <meta name="theme-color" content="#050B14">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://markluis27.github.io/">
-  <meta property="og:title" content="Mark Luis O. Fulinara | Full-Stack Developer Portfolio">
-  <meta property="og:description" content="BS IT Student and Full-Stack Developer crafting modern web applications, 3D interactive museums, and IoT solutions.">
+  <meta property="og:title" content="Mark Luis O. Fulinara | Aspiring Full-Stack Developer Portfolio">
+  <meta property="og:description" content="Aspiring Full-Stack Developer &amp; Software Engineer crafting end-to-end web applications, robust backend services, and scalable database systems.">
   <meta property="og:image" content="images/og-cover.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://markluis27.github.io/">
-  <meta property="twitter:title" content="Mark Luis O. Fulinara | Full-Stack Developer Portfolio">
-  <meta property="twitter:description" content="BS IT Student and Full-Stack Developer crafting modern web applications, 3D interactive museums, and IoT solutions.">
+  <meta property="twitter:title" content="Mark Luis O. Fulinara | Aspiring Full-Stack Developer Portfolio">
+  <meta property="twitter:description" content="Aspiring Full-Stack Developer &amp; Software Engineer crafting end-to-end web applications, robust backend services, and scalable database systems.">
   <meta property="twitter:image" content="images/og-cover.jpg">
 
   <!-- Favicon -->
@@ -46,31 +46,6 @@
   <!-- Accessible Skip to Content Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Booting Sequence Screen -->
-  <div id="boot-screen" class="boot-screen" aria-label="System booting sequence">
-    <div class="boot-terminal">
-      <div class="window-header">
-        <div class="window-dots">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-        </div>
-        <div class="window-title">bios://sys.init</div>
-        <button id="skip-boot" class="boot-skip-btn" title="Skip intro">ESC: Skip</button>
-      </div>
-      <div class="boot-content" id="boot-lines">
-        <!-- Lines injected via JavaScript -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Background Binary / Code Rain Canvas -->
-  <canvas id="binary-canvas" aria-hidden="true"></canvas>
-
-  <!-- Desktop Custom Cursor -->
-  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
-  <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
-
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
@@ -78,19 +53,15 @@
   <header class="navbar-wrapper">
     <nav class="navbar" aria-label="Main Navigation">
       <a href="#hero" class="nav-brand" aria-label="Mark Luis Homepage">
-        <div class="brand-monogram">
-          <img src="images/logo.svg" alt="ML Monogram" class="brand-svg-logo" width="36" height="36" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span class="brand-fallback-monogram">&lt;ML /&gt;</span>
-        </div>
         <span class="brand-name glitch-hover" data-text="fulinara.dev">fulinara<span class="brand-accent">.dev</span></span>
       </a>
 
       <!-- Desktop Nav Links -->
       <ul class="nav-links" id="nav-links">
-        <li><a href="#about" class="nav-link"><span class="nav-num">01.</span>// about</a></li>
-        <li><a href="#skills" class="nav-link"><span class="nav-num">02.</span>// skills</a></li>
-        <li><a href="#projects" class="nav-link"><span class="nav-num">03.</span>// projects</a></li>
-        <li><a href="#education" class="nav-link"><span class="nav-num">04.</span>// education</a></li>
+        <li><a href="#projects" class="nav-link"><span class="nav-num">01.</span>// projects</a></li>
+        <li><a href="#about" class="nav-link"><span class="nav-num">02.</span>// about</a></li>
+        <li><a href="#skills" class="nav-link"><span class="nav-num">03.</span>// skills</a></li>
+        <li><a href="#experience" class="nav-link"><span class="nav-num">04.</span>// experience</a></li>
         <li><a href="#contact" class="nav-link"><span class="nav-num">05.</span>// contact</a></li>
       </ul>
 
@@ -137,14 +108,14 @@
   <div id="mobile-nav" class="mobile-drawer" aria-hidden="true">
     <div class="mobile-drawer-inner">
       <ul class="mobile-links">
-        <li><a href="#about" class="mobile-link"><span class="nav-num">01.</span> about.json</a></li>
-        <li><a href="#skills" class="mobile-link"><span class="nav-num">02.</span> skills.ts</a></li>
-        <li><a href="#projects" class="mobile-link"><span class="nav-num">03.</span> projects.js</a></li>
-        <li><a href="#education" class="mobile-link"><span class="nav-num">04.</span> education.log</a></li>
+        <li><a href="#projects" class="mobile-link"><span class="nav-num">01.</span> projects.js</a></li>
+        <li><a href="#about" class="mobile-link"><span class="nav-num">02.</span> about.json</a></li>
+        <li><a href="#skills" class="mobile-link"><span class="nav-num">03.</span> skills.ts</a></li>
+        <li><a href="#experience" class="mobile-link"><span class="nav-num">04.</span> experience.md</a></li>
         <li><a href="#contact" class="mobile-link"><span class="nav-num">05.</span> contact.sh</a></li>
       </ul>
       <div class="mobile-drawer-footer">
-        <a href="cv.pdf" download="Mark_Luis_Fulinara_CV.pdf" class="btn btn-primary btn-block">Download CV</a>
+        <a href="Mark_Luis_Fulinara_Resume.pdf" download="Mark_Luis_Fulinara_Resume.pdf" class="btn btn-primary btn-block">Download Résumé</a>
       </div>
     </div>
   </div>
@@ -158,25 +129,18 @@
         <div class="hero-text-content">
           <div class="terminal-prompt-pill">
             <span class="prompt-symbol">$</span>
-            <span class="prompt-text">whoami --verbose</span>
+            <span class="prompt-text">whoami --fullstack</span>
             <span class="pulse-indicator"></span>
           </div>
 
           <h1 class="hero-heading">
-            <span class="hero-subline">Hi, I'm</span>
-            <span class="hero-name glitch-hover" data-text="Mark Luis">Mark Luis O. Fulinara</span>
+            <span class="hero-name">Mark Luis O. Fulinara</span>
           </h1>
 
-          <div class="typewriter-box" aria-live="polite">
-            <span class="typewriter-prefix">&gt; </span>
-            <span id="typewriter-text" class="typewriter-text"></span>
-            <span class="blinking-cursor">_</span>
-          </div>
+          <p class="hero-static-headline">Full-Stack Developer · Seeking an Internship</p>
 
           <p class="hero-bio">
-            BS Information Technology student &amp; Full-Stack Developer from Tanauan, Batangas, Philippines. 
-            Passionate about building end-to-end web applications, interactive 3D WebGL worlds, 
-            and connected hardware solutions.
+            I’m a BS IT student at FAITH Colleges. I led development of One Batangas, a digital heritage platform, and Fedelicious Wings, a restaurant ordering and reservation system.
           </p>
 
           <div class="hero-cta-group">
@@ -188,25 +152,25 @@
               </svg>
             </a>
             
-            <a href="cv.pdf" download="Mark_Luis_Fulinara_CV.pdf" class="btn btn-outline magnetic-btn">
+            <a href="Mark_Luis_Fulinara_Resume.pdf" download="Mark_Luis_Fulinara_Resume.pdf" class="btn btn-outline magnetic-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
               </svg>
-              <span>Download CV</span>
+              <span>Download Résumé</span>
             </a>
           </div>
 
           <!-- Social links -->
           <div class="hero-socials">
             <span class="socials-label">// connect:</span>
-            <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="GitHub: markluis27">
+            <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub profile" title="GitHub: markluis27">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
               </svg>
             </a>
-            <a href="mailto:fulinaramarkluis@gmail.com" class="social-icon-btn" aria-label="Email Mark Luis" title="Email: fulinaramarkluis@gmail.com">
+            <a href="mailto:fulinaramarkluis@gmail.com" class="social-icon-btn" aria-label="Email Mark" title="Email: fulinaramarkluis@gmail.com">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -322,7 +286,7 @@
               <!-- Floating Terminal Pill -->
               <div class="floating-badge">
                 <span class="badge-icon">⚡</span>
-                <span class="badge-text">Full-Stack &bull; Capstone Lead</span>
+                <span class="badge-text">Full-Stack &bull; Software Engineering</span>
               </div>
             </div>
           </div>
@@ -331,442 +295,20 @@
       </div>
     </section>
 
-    <!-- INFINITE MARQUEE TICKER -->
-    <div class="marquee-wrapper" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item">TypeScript</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Node.js</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">ASP.NET Web API</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Three.js / WebGL</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">PostgreSQL</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Supabase</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Microsoft SQL Server</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">ESP32 IoT</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">AWS EC2</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Dapper</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Leaflet.js</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Linux / Nginx</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">RESTful APIs</span>
-        <span class="marquee-dot">&bull;</span>
-        <!-- Duplicate for seamless loop -->
-        <span class="marquee-item">TypeScript</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Node.js</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">ASP.NET Web API</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Three.js / WebGL</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">PostgreSQL</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Supabase</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Microsoft SQL Server</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">ESP32 IoT</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">AWS EC2</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Dapper</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Leaflet.js</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">Linux / Nginx</span>
-        <span class="marquee-dot">&bull;</span>
-        <span class="marquee-item">RESTful APIs</span>
-        <span class="marquee-dot">&bull;</span>
-      </div>
-    </div>
-
-    <!-- STATS COUNTER BAR -->
-    <section class="section stats-section">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Full-Stack Projects Built</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Technologies &amp; Tools Mastered</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="4">0</span><span class="stat-plus">th</span>
-            <span class="stat-label">Year BS IT Student</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
-            <span class="stat-label">Code Quality &amp; Dedication</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: ABOUT -->
-    <section id="about" class="section about-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 01. PROFILE OVERVIEW</span>
-          <h2 class="section-title">About Me</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="about-grid">
-          <!-- Code Block Window (about.json) -->
-          <div class="code-window about-window">
-            <div class="window-header">
-              <div class="window-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
-              </div>
-              <div class="window-tabs">
-                <span class="tab active">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                  </svg>
-                  about.json
-                </span>
-              </div>
-              <button class="copy-code-btn" id="copy-about-json" title="Copy JSON">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span class="copy-text">Copy</span>
-              </button>
-            </div>
-
-            <div class="window-body code-body">
-              <pre class="json-code"><code><span class="json-punct">{</span>
-  <span class="json-key">"developer"</span><span class="json-punct">:</span> <span class="json-str">"Mark Luis O. Fulinara"</span><span class="json-punct">,</span>
-  <span class="json-key">"title"</span><span class="json-punct">:</span> <span class="json-str">"Full-Stack Developer"</span><span class="json-punct">,</span>
-  <span class="json-key">"education"</span><span class="json-punct">:</span> <span class="json-punct">{</span>
-    <span class="json-key">"degree"</span><span class="json-punct">:</span> <span class="json-str">"BS in Information Technology"</span><span class="json-punct">,</span>
-    <span class="json-key">"institution"</span><span class="json-punct">:</span> <span class="json-str">"FAITH Colleges"</span><span class="json-punct">,</span>
-    <span class="json-key">"location"</span><span class="json-punct">:</span> <span class="json-str">"Tanauan City, Batangas, Philippines"</span>
-  <span class="json-punct">}</span><span class="json-punct">,</span>
-  <span class="json-key">"status"</span><span class="json-punct">:</span> <span class="json-str">"Seeking Full-Stack Developer Roles"</span><span class="json-punct">,</span>
-  <span class="json-key">"coreCompetencies"</span><span class="json-punct">:</span> <span class="json-punct">[</span>
-    <span class="json-str">"Full-Stack Web Development"</span><span class="json-punct">,</span>
-    <span class="json-str">"Interactive 3D WebGL / Three.js"</span><span class="json-punct">,</span>
-    <span class="json-str">"RESTful API &amp; Microservices Architecture"</span><span class="json-punct">,</span>
-    <span class="json-str">"Database Modeling &amp; Stored Procedures"</span><span class="json-punct">,</span>
-    <span class="json-str">"AI Assistant &amp; Service Integrations"</span><span class="json-punct">,</span>
-    <span class="json-str">"IoT Microcontroller Solutions (ESP32)"</span>
-  <span class="json-punct">]</span><span class="json-punct">,</span>
-  <span class="json-key">"flagshipAchievement"</span><span class="json-punct">:</span> <span class="json-str">"Independently spearheaded and deployed 'One Batangas' - a full 3D heritage museum on AWS EC2"</span><span class="json-punct">,</span>
-  <span class="json-key">"traits"</span><span class="json-punct">:</span> <span class="json-punct">[</span><span class="json-str">"Analytical"</span><span class="json-punct">,</span> <span class="json-str">"Continuous Learner"</span><span class="json-punct">,</span> <span class="json-str">"Collaborative Lead"</span><span class="json-punct">]</span>
-<span class="json-punct">}</span></code></pre>
-            </div>
-          </div>
-
-          <!-- About Narrative & Secondary Image Slot -->
-          <div class="about-narrative">
-            <div class="narrative-card">
-              <h3 class="narrative-title">Passionate Builder from Tanauan, Batangas</h3>
-              <p class="narrative-p">
-                I am a motivated Bachelor of Science in Information Technology student driven by the art and science 
-                of building reliable, high-impact digital experiences. With a strong blend of architectural vision 
-                and low-level problem solving, I bridge the gap between creative front-end interfaces, solid 
-                backend services, and real-world hardware IoT devices.
-              </p>
-              <p class="narrative-p">
-                As Capstone Project Leader, I engineered and deployed <strong>One Batangas: Virtual Heritage Museum</strong> 
-                to AWS EC2. The project pushed boundaries by blending 3D Three.js environments, an intelligent AI museum guide, 
-                spatial maps, and real-time multiplayer co-op exploration.
-              </p>
-              
-              <div class="narrative-highlights">
-                <div class="highlight-item">
-                  <span class="highlight-icon">&gt;</span>
-                  <span class="highlight-text">Hands-on experience delivering production-grade web systems from zero to deployment.</span>
-                </div>
-                <div class="highlight-item">
-                  <span class="highlight-icon">&gt;</span>
-                  <span class="highlight-text">Versatile in modern stacks: Node.js/Express, ASP.NET Web API, PostgreSQL, and Supabase.</span>
-                </div>
-                <div class="highlight-item">
-                  <span class="highlight-icon">&gt;</span>
-                  <span class="highlight-text">Enthusiastic about AI integrations, 3D graphics, and smart IoT embedded hardware.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- About Image Placeholder (1000x800) -->
-            <div class="code-window about-img-window">
-              <div class="window-header">
-                <div class="window-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <div class="window-title">workspace.preview</div>
-                <span class="window-tag">1000×800</span>
-              </div>
-              <div class="window-body">
-                <div class="img-placeholder-container about-placeholder" data-filename="images/about.jpg" data-size="1000x800">
-                  <div class="placeholder-overlay">
-                    <div class="placeholder-icon">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                      </svg>
-                    </div>
-                    <span class="placeholder-filename">images/about.jpg</span>
-                    <span class="placeholder-dimension">1000 × 800 px</span>
-                    <span class="placeholder-note">Workspace / Action Photo Slot</span>
-                  </div>
-                  <img src="images/about.jpg" alt="Mark Luis Workspace" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: SKILLS -->
-    <section id="skills" class="section skills-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 02. TECHNICAL PROFICIENCY</span>
-          <h2 class="section-title">Skills &amp; Technologies</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <!-- Master Skills Code Window (skills.ts) -->
-        <div class="code-window skills-window">
-          <div class="window-header">
-            <div class="window-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <div class="window-tabs">
-              <span class="tab active">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55L16.5 14.6a1.78 1.78 0 0 0 0-3.2z"></path>
-                </svg>
-                skills.ts
-              </span>
-            </div>
-            <span class="window-info">7 Domains &bull; TypeScript Interfaces</span>
-          </div>
-
-          <div class="window-body skills-body">
-            <div class="skills-grid">
-              
-              <!-- Category 1: Frontend -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">Frontend Engineering</h3>
-                    <span class="category-type">interface FrontendDev</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag">HTML5</span>
-                  <span class="skill-tag">CSS3</span>
-                  <span class="skill-tag">JavaScript (ES6+)</span>
-                  <span class="skill-tag">Responsive Design</span>
-                  <span class="skill-tag skill-highlight">Three.js</span>
-                  <span class="skill-tag skill-highlight">WebGL</span>
-                  <span class="skill-tag">Leaflet.js</span>
-                </div>
-              </div>
-
-              <!-- Category 2: Backend/API -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">Backend &amp; APIs</h3>
-                    <span class="category-type">interface BackendAPI</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag skill-highlight">Node.js</span>
-                  <span class="skill-tag">Express.js</span>
-                  <span class="skill-tag skill-highlight">ASP.NET Web API</span>
-                  <span class="skill-tag">RESTful APIs</span>
-                  <span class="skill-tag">Dapper ORM</span>
-                </div>
-              </div>
-
-              <!-- Category 3: Database -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">Databases &amp; Storage</h3>
-                    <span class="category-type">interface DataArchitecture</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag skill-highlight">PostgreSQL</span>
-                  <span class="skill-tag skill-highlight">Supabase</span>
-                  <span class="skill-tag">Microsoft SQL Server</span>
-                  <span class="skill-tag">SQL</span>
-                  <span class="skill-tag">Stored Procedures</span>
-                </div>
-              </div>
-
-              <!-- Category 4: Auth & Security -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">Auth &amp; Security</h3>
-                    <span class="category-type">interface SecurityPolicy</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag">Supabase Auth</span>
-                  <span class="skill-tag">Email Verification</span>
-                  <span class="skill-tag skill-highlight">Role-Based Access (RBAC)</span>
-                  <span class="skill-tag">Row-Level Security (RLS)</span>
-                </div>
-              </div>
-
-              <!-- Category 5: Cloud & Tools -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">Cloud &amp; DevOps</h3>
-                    <span class="category-type">interface CloudDevOps</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag skill-highlight">AWS EC2</span>
-                  <span class="skill-tag">Linux / Ubuntu</span>
-                  <span class="skill-tag">Nginx</span>
-                  <span class="skill-tag">Git</span>
-                  <span class="skill-tag">GitHub</span>
-                  <span class="skill-tag">VS Code</span>
-                </div>
-              </div>
-
-              <!-- Category 6: IoT & Hardware -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                      <rect x="9" y="9" width="6" height="6"></rect>
-                      <line x1="9" y1="1" x2="9" y2="4"></line>
-                      <line x1="15" y1="1" x2="15" y2="4"></line>
-                      <line x1="9" y1="20" x2="9" y2="23"></line>
-                      <line x1="15" y1="20" x2="15" y2="23"></line>
-                      <line x1="20" y1="9" x2="23" y2="9"></line>
-                      <line x1="20" y1="14" x2="23" y2="14"></line>
-                      <line x1="1" y1="9" x2="4" y2="9"></line>
-                      <line x1="1" y1="14" x2="4" y2="14"></line>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">IoT &amp; Embedded</h3>
-                    <span class="category-type">interface IoTSolutions</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag skill-highlight">ESP32</span>
-                  <span class="skill-tag">RC522 RFID</span>
-                  <span class="skill-tag">SPI / I2C Protocols</span>
-                  <span class="skill-tag">1602 LCD Displays</span>
-                  <span class="skill-tag">Wi-Fi Transceivers</span>
-                </div>
-              </div>
-
-              <!-- Category 7: Networking -->
-              <div class="skill-category-card">
-                <div class="category-header">
-                  <div class="category-icon-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                  </div>
-                  <div class="category-info">
-                    <h3 class="category-title">Networking Foundations</h3>
-                    <span class="category-type">interface NetAdmin</span>
-                  </div>
-                </div>
-                <div class="skill-tags">
-                  <span class="skill-tag">IP Addressing (IPv4)</span>
-                  <span class="skill-tag">Subnetting</span>
-                  <span class="skill-tag">Static/Dynamic Routing</span>
-                  <span class="skill-tag">LAN Cabling (Cat5e/6)</span>
-                  <span class="skill-tag">Cisco Packet Tracer</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 4: PROJECTS -->
+    <!-- SECTION 1: PROJECTS -->
     <section id="projects" class="section projects-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">// 03. FEATURED WORK</span>
+          <span class="section-tag">// 01. FEATURED WORK</span>
           <h2 class="section-title">Projects &amp; Deployments</h2>
           <div class="section-line"></div>
         </div>
 
-        <div class="projects-list">
-
-          <!-- PROJECT 1: ONE BATANGAS -->
-          <article class="code-window project-card" data-tilt>
+        <!-- Featured Projects Grid (2 Cards on Desktop, Stacked on Mobile) -->
+        <div class="featured-projects-grid">
+          
+          <!-- FEATURED PROJECT 1: ONE BATANGAS -->
+          <article class="code-window project-card featured-card" data-tilt>
             <div class="window-header">
               <div class="window-dots">
                 <span class="dot dot-red"></span>
@@ -775,14 +317,13 @@
               </div>
               <div class="window-tabs">
                 <span class="tab active">
-                  <span class="tab-accent">01.</span> one-batangas.online.ts
+                  <span class="tab-accent">01.</span> one-batangas.fullstack.ts
                 </span>
               </div>
-              <span class="project-badge badge-featured">Capstone &bull; Project Leader</span>
+              <span class="project-badge badge-featured">Featured &bull; Capstone Lead</span>
             </div>
 
             <div class="project-inner">
-              <!-- Cover Image Slot (1280x720) -->
               <div class="project-img-wrapper">
                 <div class="img-placeholder-container project-placeholder" data-filename="images/project-onebatangas.jpg" data-size="1280x720">
                   <div class="placeholder-overlay">
@@ -795,41 +336,53 @@
                     </div>
                     <span class="placeholder-filename">images/project-onebatangas.jpg</span>
                     <span class="placeholder-dimension">1280 × 720 px</span>
-                    <span class="placeholder-note">One Batangas 3D Museum Cover</span>
+                    <span class="placeholder-note">One Batangas Platform System</span>
                   </div>
-                  <img src="images/project-onebatangas.jpg" alt="One Batangas Virtual Heritage Museum" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
+                  <img src="images/project-onebatangas.jpg" alt="One Batangas Full-Stack Platform" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
                 </div>
               </div>
 
-              <!-- Project Description & Details -->
               <div class="project-details">
                 <div class="project-meta">
-                  <span class="project-category">Interactive 3D WebGL / Capstone Project</span>
-                  <h3 class="project-title">One Batangas: Virtual Heritage Museum</h3>
+                  <span class="project-category">Full-Stack Software Architecture &bull; Capstone Project</span>
+                  <h3 class="project-title">One Batangas: Cultural Heritage Platform</h3>
                 </div>
 
                 <p class="project-desc">
-                  An innovative, immersive 3D virtual heritage museum developed to safeguard and showcase Batangas rich cultural 
-                  history. Features real-time Three.js spatial galleries, an AI museum docent assistant for conversational learning, 
-                  an interactive provincial map, gamified cultural quizzes with live leaderboards, NPC interactive guides, 
-                  multi-user co-op exploration, and administrative portals with role-based access control. Deployed live on AWS EC2.
+                  Built for cultural researchers, students, and visitors to explore Batangas heritage through interactive maps, multimedia archives, and AI-guided conversational exhibits.
+                </p>
+
+                <p class="project-contribution">
+                  <strong>Contribution:</strong> Project Leader &amp; Full-Stack Developer — Architected the Node.js/Express REST APIs, structured the Supabase PostgreSQL database schema with role-based security, and deployed the production stack on AWS EC2.
                 </p>
 
                 <div class="project-tech-tags">
-                  <span class="tech-tag">Three.js</span>
-                  <span class="tech-tag">WebGL</span>
-                  <span class="tech-tag">Node.js</span>
-                  <span class="tech-tag">Express.js</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">Leaflet.js</span>
-                  <span class="tech-tag">AWS EC2</span>
-                  <span class="tech-tag">AI Integration</span>
-                  <span class="tech-tag">RBAC</span>
+                  <span class="tech-tag skill-highlight">Node.js / Express</span>
+                  <span class="tech-tag skill-highlight">PostgreSQL &amp; Supabase</span>
+                  <span class="tech-tag skill-highlight">AWS EC2 &amp; Nginx</span>
+                  <span class="tech-tag skill-highlight">RESTful APIs</span>
                 </div>
+
+                <details class="project-details-disclosure">
+                  <summary class="project-details-summary">
+                    <span>Project details</span>
+                    <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </summary>
+                  <div class="project-details-content">
+                    <ul>
+                      <li><strong>Architecture:</strong> Engineered modular RESTful API microservices on Node.js and Express.js with structured controllers, payload validation, and CORS security.</li>
+                      <li><strong>Database &amp; RBAC:</strong> Modeled relational entities in PostgreSQL hosted on Supabase, enforcing Row-Level Security (RLS) policies and Role-Based Access Control for administrative portals.</li>
+                      <li><strong>Interactive Services:</strong> Integrated Leaflet coordinate mapping, dynamic knowledge quiz engines, and an AI conversational docent service.</li>
+                      <li><strong>Production Infrastructure:</strong> Provisioned AWS EC2 (Ubuntu Linux) with Nginx reverse proxy routing, PM2 process management, custom DNS, and automated SSL encryption.</li>
+                    </ul>
+                  </div>
+                </details>
 
                 <div class="project-actions">
                   <a href="https://onebatangas.online" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
-                    <span>Live Museum</span>
+                    <span>Live platform</span>
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
@@ -837,11 +390,9 @@
                     </svg>
                   </a>
                   <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm magnetic-btn">
-                    <span>Source Code</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
+                    <span>GitHub profile</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                     </svg>
                   </a>
                 </div>
@@ -849,8 +400,8 @@
             </div>
           </article>
 
-          <!-- PROJECT 2: FEDELICIOUS WINGS -->
-          <article class="code-window project-card" data-tilt>
+          <!-- FEATURED PROJECT 2: FEDELICIOUS WINGS -->
+          <article class="code-window project-card featured-card" data-tilt>
             <div class="window-header">
               <div class="window-dots">
                 <span class="dot dot-red"></span>
@@ -859,14 +410,13 @@
               </div>
               <div class="window-tabs">
                 <span class="tab active">
-                  <span class="tab-accent">02.</span> fedelicious-api.cs
+                  <span class="tab-accent">02.</span> fedelicious-backend.cs
                 </span>
               </div>
-              <span class="project-badge badge-secondary">ASP.NET &bull; SQL Server</span>
+              <span class="project-badge badge-featured">Featured &bull; Full-Stack Lead</span>
             </div>
 
             <div class="project-inner">
-              <!-- Cover Image Slot (1280x720) -->
               <div class="project-img-wrapper">
                 <div class="img-placeholder-container project-placeholder" data-filename="images/project-fedelicious.jpg" data-size="1280x720">
                   <div class="placeholder-overlay">
@@ -874,271 +424,476 @@
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
                         <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                        <line x1="6" y1="1" x2="6" y2="4"></line>
-                        <line x1="10" y1="1" x2="10" y2="4"></line>
-                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                        <line x1="10" y1="10" x2="10.01" y2="10"></line>
+                        <line x1="14" y1="14" x2="14.01" y2="14"></line>
                       </svg>
                     </div>
                     <span class="placeholder-filename">images/project-fedelicious.jpg</span>
                     <span class="placeholder-dimension">1280 × 720 px</span>
-                    <span class="placeholder-note">Fedelicious Ordering System</span>
+                    <span class="placeholder-note">Fedelicious Ordering &amp; Reservation System</span>
                   </div>
                   <img src="images/project-fedelicious.jpg" alt="Fedelicious Wings Ordering and Reservation System" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
                 </div>
               </div>
 
-              <!-- Project Description & Details -->
               <div class="project-details">
                 <div class="project-meta">
-                  <span class="project-category">Full-Stack Enterprise &bull; Ordering &amp; Reservations</span>
+                  <span class="project-category">Full-Stack Enterprise &bull; System Integration Project</span>
                   <h3 class="project-title">Fedelicious Wings: Ordering and Reservation System</h3>
                 </div>
 
                 <p class="project-desc">
-                  An end-to-end restaurant management, meal ordering, and table reservation platform. Includes dedicated customer 
-                  ordering frontends and administrative kitchen management dashboards. Built on a high-throughput ASP.NET Web API 
-                  microservices architecture powered by Microsoft SQL Server with Dapper ORM and pre-compiled stored procedures. 
-                  Integrated Gmail SMTP automated email notifications and GCash digital payment receipt confirmation.
+                  Built for restaurant diners and staff to streamline table reservations, real-time online ordering, and verified payment tracking.
+                </p>
+
+                <p class="project-contribution">
+                  <strong>Contribution:</strong> Project Leader &amp; Full-Stack Developer — Engineered the high-throughput ASP.NET Web API backend in C#, structured the Microsoft SQL Server database using Dapper ORM with stored procedures, and integrated Gmail SMTP notifications.
                 </p>
 
                 <div class="project-tech-tags">
-                  <span class="tech-tag">ASP.NET Web API</span>
-                  <span class="tech-tag">C#</span>
-                  <span class="tech-tag">MS SQL Server</span>
-                  <span class="tech-tag">Dapper</span>
-                  <span class="tech-tag">Stored Procedures</span>
-                  <span class="tech-tag">Gmail SMTP</span>
-                  <span class="tech-tag">GCash Submission</span>
+                  <span class="tech-tag skill-highlight">ASP.NET Web API (C#)</span>
+                  <span class="tech-tag skill-highlight">MS SQL Server</span>
+                  <span class="tech-tag skill-highlight">Dapper ORM</span>
+                  <span class="tech-tag skill-highlight">REST APIs</span>
                 </div>
+
+                <details class="project-details-disclosure">
+                  <summary class="project-details-summary">
+                    <span>Project details</span>
+                    <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </summary>
+                  <div class="project-details-content">
+                    <ul>
+                      <li><strong>Backend Architecture:</strong> Developed a multi-tier C# RESTful API using ASP.NET Web API, applying separation of concerns, repository patterns, and typed DTOs.</li>
+                      <li><strong>Database Design:</strong> Designed normalized relational tables in Microsoft SQL Server, optimizing data queries with Dapper micro-ORM and pre-compiled stored procedures.</li>
+                      <li><strong>Transactional Workflow:</strong> Integrated automated email notifications for reservation and order status updates using Gmail SMTP.</li>
+                      <li><strong>Order &amp; Payment Flow:</strong> Implemented a customer-facing GCash receipt upload interface backed by manual cashier reference verification and state tracking.</li>
+                    </ul>
+                  </div>
+                </details>
 
                 <div class="project-actions">
                   <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
-                    <span>View Repository</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    <span>GitHub profile</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                     </svg>
                   </a>
                   <a href="#contact" class="btn btn-outline btn-sm magnetic-btn">
-                    <span>Request Demo</span>
+                    <span>Contact for demo</span>
                   </a>
                 </div>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 3: SMART RFID ATTENDANCE SYSTEM -->
-          <article class="code-window project-card" data-tilt>
-            <div class="window-header">
-              <div class="window-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
-              </div>
-              <div class="window-tabs">
-                <span class="tab active">
-                  <span class="tab-accent">03.</span> esp32-rfid-supabase.ino
-                </span>
-              </div>
-              <span class="project-badge badge-iot">IoT Hardware &bull; April 2026</span>
-            </div>
+        </div>
 
-            <div class="project-inner">
-              <!-- Cover Image Slot (1280x720) -->
-              <div class="project-img-wrapper">
-                <div class="img-placeholder-container project-placeholder" data-filename="images/project-rfid.jpg" data-size="1280x720">
+        <!-- Compact More Projects Sub-Section -->
+        <div class="other-projects-wrapper">
+          <div class="other-projects-header">
+            <h3 class="other-projects-title">// More Projects</h3>
+            <p class="other-projects-sub">Additional software, hardware integration, and statistical tools</p>
+          </div>
+
+          <div class="other-projects-grid">
+            
+            <!-- PROJECT 3: SMART RFID -->
+            <article class="code-window other-project-card" data-tilt>
+              <div class="window-header">
+                <div class="window-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="window-tabs">
+                  <span class="tab active"><span class="tab-accent">03.</span> esp32-rfid.ino</span>
+                </div>
+                <span class="project-badge badge-iot">IoT &bull; Hardware</span>
+              </div>
+              <div class="other-project-body">
+                <div class="img-placeholder-container other-project-placeholder" data-filename="images/project-rfid.jpg" data-size="1280x720">
                   <div class="placeholder-overlay">
-                    <div class="placeholder-icon">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                        <circle cx="9" cy="9" r="2"></circle>
-                        <path d="M15 9h.01"></path>
-                        <path d="M15 15h.01"></path>
-                        <path d="M9 15h.01"></path>
-                      </svg>
-                    </div>
                     <span class="placeholder-filename">images/project-rfid.jpg</span>
-                    <span class="placeholder-dimension">1280 × 720 px</span>
-                    <span class="placeholder-note">Smart RFID ESP32 Hardware</span>
                   </div>
                   <img src="images/project-rfid.jpg" alt="Smart RFID Attendance System" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
                 </div>
-              </div>
-
-              <!-- Project Description & Details -->
-              <div class="project-details">
-                <div class="project-meta">
-                  <span class="project-category">IoT &amp; Cloud Integration &bull; Embedded Systems</span>
-                  <h3 class="project-title">Smart RFID Attendance System</h3>
-                </div>
-
-                <p class="project-desc">
-                  An automated contactless attendance logging terminal powered by an ESP32 microcontroller and RC522 RFID 
-                  scanner. Instantaneously transmits scanned badge UIDs over local Wi-Fi directly to Supabase cloud database 
-                  tables. Features real-time status output on a 16x2 I2C Liquid Crystal Display, accompanied by visual dual-color LED indicators 
-                  and audio buzzer confirmation.
+                <h4 class="other-card-title">Smart RFID Attendance System</h4>
+                <p class="other-card-desc">
+                  An automated contactless attendance logging terminal bridging an ESP32 microcontroller and RC522 RFID reader with Supabase cloud database tables via Wi-Fi HTTP requests, with LCD and buzzer status indicators.
                 </p>
-
-                <div class="project-tech-tags">
+                <div class="other-card-tags">
                   <span class="tech-tag">ESP32</span>
+                  <span class="tech-tag skill-highlight">Supabase</span>
                   <span class="tech-tag">RC522 RFID</span>
-                  <span class="tech-tag">Supabase</span>
-                  <span class="tech-tag">C++ / Arduino</span>
-                  <span class="tech-tag">I2C LCD 1602</span>
-                  <span class="tech-tag">Wi-Fi HTTP Client</span>
+                  <span class="tech-tag">HTTP APIs</span>
                 </div>
-
-                <div class="project-actions">
-                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
-                    <span>Firmware &amp; Circuit</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
+                <div class="other-card-footer">
+                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <span>GitHub profile</span> &rarr;
                   </a>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- PROJECT 4: MC BANK -->
-          <article class="code-window project-card" data-tilt>
-            <div class="window-header">
-              <div class="window-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
+            <!-- PROJECT 4: MC BANK -->
+            <article class="code-window other-project-card" data-tilt>
+              <div class="window-header">
+                <div class="window-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="window-tabs">
+                  <span class="tab active"><span class="tab-accent">04.</span> mc-bank.ui</span>
+                </div>
+                <span class="project-badge badge-ui">Mobile UI</span>
               </div>
-              <div class="window-tabs">
-                <span class="tab active">
-                  <span class="tab-accent">04.</span> mc-bank-mobile.ui
-                </span>
-              </div>
-              <span class="project-badge badge-ui">Mobile UI &bull; Fintech</span>
-            </div>
-
-            <div class="project-inner">
-              <!-- Cover Image Slot (1280x720) -->
-              <div class="project-img-wrapper">
-                <div class="img-placeholder-container project-placeholder" data-filename="images/project-mcbank.jpg" data-size="1280x720">
+              <div class="other-project-body">
+                <div class="img-placeholder-container other-project-placeholder" data-filename="images/project-mcbank.jpg" data-size="1280x720">
                   <div class="placeholder-overlay">
-                    <div class="placeholder-icon">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-                        <line x1="2" y1="10" x2="22" y2="10"></line>
-                      </svg>
-                    </div>
                     <span class="placeholder-filename">images/project-mcbank.jpg</span>
-                    <span class="placeholder-dimension">1280 × 720 px</span>
-                    <span class="placeholder-note">MC Bank UI Screenshots</span>
                   </div>
                   <img src="images/project-mcbank.jpg" alt="MC Bank Mobile App UI" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
                 </div>
-              </div>
-
-              <!-- Project Description & Details -->
-              <div class="project-details">
-                <div class="project-meta">
-                  <span class="project-category">Mobile-First UI/UX &bull; Banking Dashboard</span>
-                  <h3 class="project-title">MC Bank: Mobile Banking App UI</h3>
-                </div>
-
-                <p class="project-desc">
-                  A slick, modern mobile banking application interface tailored for effortless financial management. 
-                  Encompasses streamlined user authentication and onboarding, virtual debit/credit card controls, quick QR-code 
-                  transfer workflows, real-time transaction activity ledgers, and interactive spending visualization charts.
+                <h4 class="other-card-title">MC Bank: Mobile Banking App UI</h4>
+                <p class="other-card-desc">
+                  A modern mobile banking application interface prototype focused on financial workflows: account authorization, virtual card management, QR interaction flows, and client-side transaction activity charts.
                 </p>
-
-                <div class="project-tech-tags">
-                  <span class="tech-tag">JavaScript</span>
-                  <span class="tech-tag">Modern CSS3</span>
-                  <span class="tech-tag">Fintech UX</span>
-                  <span class="tech-tag">QR Interaction</span>
-                  <span class="tech-tag">Data Visualizations</span>
+                <div class="other-card-tags">
+                  <span class="tech-tag skill-highlight">JavaScript</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag skill-highlight">Responsive UI</span>
+                  <span class="tech-tag">Interactive Design</span>
                 </div>
-
-                <div class="project-actions">
-                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
-                    <span>View UI Code</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
+                <div class="other-card-footer">
+                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <span>GitHub profile</span> &rarr;
                   </a>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- PROJECT 5: SIMPLE LINEAR REGRESSION TOOL -->
-          <article class="code-window project-card" data-tilt>
-            <div class="window-header">
-              <div class="window-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
+            <!-- PROJECT 5: LINEAR REGRESSION TOOL -->
+            <article class="code-window other-project-card" data-tilt>
+              <div class="window-header">
+                <div class="window-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="window-tabs">
+                  <span class="tab active"><span class="tab-accent">05.</span> regression.tool</span>
+                </div>
+                <span class="project-badge badge-math">Statistics</span>
               </div>
-              <div class="window-tabs">
-                <span class="tab active">
-                  <span class="tab-accent">05.</span> regression-analysis.tool
-                </span>
-              </div>
-              <span class="project-badge badge-math">Data Science &bull; Web App</span>
-            </div>
-
-            <div class="project-inner">
-              <!-- Cover Image Slot (1280x720) -->
-              <div class="project-img-wrapper">
-                <div class="img-placeholder-container project-placeholder" data-filename="images/project-regression.jpg" data-size="1280x720">
+              <div class="other-project-body">
+                <div class="img-placeholder-container other-project-placeholder" data-filename="images/project-regression.jpg" data-size="1280x720">
                   <div class="placeholder-overlay">
-                    <div class="placeholder-icon">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                        <line x1="6" y1="20" x2="6" y2="14"></line>
-                      </svg>
-                    </div>
                     <span class="placeholder-filename">images/project-regression.jpg</span>
-                    <span class="placeholder-dimension">1280 × 720 px</span>
-                    <span class="placeholder-note">Linear Regression Tool View</span>
                   </div>
                   <img src="images/project-regression.jpg" alt="Simple Linear Regression Tool" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
                 </div>
-              </div>
-
-              <!-- Project Description & Details -->
-              <div class="project-details">
-                <div class="project-meta">
-                  <span class="project-category">Statistical Analytics &bull; Interactive Web Application</span>
-                  <h3 class="project-title">Simple Linear Regression Tool</h3>
-                </div>
-
-                <p class="project-desc">
-                  An intuitive web-based statistical computation application for bivariate regression and correlation analysis. 
-                  Enables users to input custom paired datasets, plots real-time dynamic scatter charts with least-squares 
-                  best-fit trend lines, computes Pearson correlation coefficients ($r$), slope ($m$), intercept ($b$), and gives 
-                  instant predictive outputs for hypothetical values.
+                <h4 class="other-card-title">Simple Linear Regression Tool</h4>
+                <p class="other-card-desc">
+                  An interactive web tool for bivariate statistical analysis, dynamically plotting coordinate datasets, computing least-squares regression lines ($y = mx + b$), and interpreting Pearson correlation ($r$) in real time.
                 </p>
-
-                <div class="project-tech-tags">
-                  <span class="tech-tag">JavaScript</span>
-                  <span class="tech-tag">SVG / Canvas Plotting</span>
-                  <span class="tech-tag">Statistical Modeling</span>
-                  <span class="tech-tag">Data Analysis</span>
+                <div class="other-card-tags">
+                  <span class="tech-tag skill-highlight">JavaScript</span>
+                  <span class="tech-tag">Canvas 2D</span>
+                  <span class="tech-tag">Statistical Math</span>
+                  <span class="tech-tag">Data Modeling</span>
                 </div>
-
-                <div class="project-actions">
-                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
-                    <span>Source Code</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
+                <div class="other-card-footer">
+                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <span>GitHub profile</span> &rarr;
                   </a>
                 </div>
               </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT & EDUCATION -->
+    <section id="about" class="section about-section open-layout">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 02. PROFILE &amp; EDUCATION</span>
+          <h2 class="section-title">About &amp; Education</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="open-about-wrapper">
+          <div class="open-about-content">
+            <p class="open-about-lead">
+              I am a Bachelor of Science in Information Technology student at FAITH Colleges focused on end-to-end software development. With dual backend experience across Node.js/Express and ASP.NET Web API (C#), I build reliable REST APIs, model relational database schemas, and deploy full-stack applications to cloud environments. I am seeking an internship where I can contribute to production systems and grow alongside experienced engineering teams.
+            </p>
+
+            <div id="education" class="open-about-credentials">
+              <div class="cred-item">
+                <span class="cred-label">Degree</span>
+                <span class="cred-value">Bachelor of Science in Information Technology</span>
+              </div>
+              <div class="cred-item">
+                <span class="cred-label">Institution</span>
+                <span class="cred-value">First Asia Institute of Technology and Humanities (FAITH Colleges)</span>
+              </div>
+              <div class="cred-item">
+                <span class="cred-label">Graduation &amp; Location</span>
+                <span class="cred-value">Expected 2026 &bull; Tanauan City, Batangas, Philippines</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preserved Workspace / Action Photo Slot -->
+          <div class="open-about-portrait">
+            <div class="img-placeholder-container about-placeholder" data-filename="images/about.jpg" data-size="1000x800">
+              <div class="placeholder-overlay">
+                <div class="placeholder-icon">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <span class="placeholder-filename">images/about.jpg</span>
+                <span class="placeholder-dimension">1000 × 800 px</span>
+                <span class="placeholder-note">Workspace / Action Photo Slot</span>
+              </div>
+              <img src="images/about.jpg" alt="Mark Luis Workspace" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 03. TECHNICAL PROFICIENCY</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-pillars-grid">
+          
+          <!-- Pillar 1: Frontend -->
+          <div class="skill-pillar-card">
+            <div class="pillar-header">
+              <div class="pillar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Frontend</h3>
+            </div>
+            <ul class="pillar-skills-list">
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">JavaScript (ES6+) &amp; HTML5/CSS3</div>
+                <div class="pillar-skill-desc">Semantic structure, modern asynchronous patterns, and responsive design</div>
+                <span class="pillar-project-tag">Used in One Batangas &bull; Fedelicious Wings</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Responsive &amp; Mobile-First Layouts</div>
+                <div class="pillar-skill-desc">Accessible, flexible grid and flexbox interfaces tested across breakpoints</div>
+                <span class="pillar-project-tag">Used in One Batangas &bull; Fedelicious Wings</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">GSAP &amp; Interactive UI</div>
+                <div class="pillar-skill-desc">Scroll-driven animations, tactile feedback, and interactive client workflows</div>
+                <span class="pillar-project-tag">Used in One Batangas</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2: Backend -->
+          <div class="skill-pillar-card">
+            <div class="pillar-header">
+              <div class="pillar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Backend</h3>
+            </div>
+            <ul class="pillar-skills-list">
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Node.js &amp; Express REST APIs</div>
+                <div class="pillar-skill-desc">Modular route controllers, middleware validation, and JSON API architecture</div>
+                <span class="pillar-project-tag">Used in One Batangas</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">ASP.NET Web API (C#)</div>
+                <div class="pillar-skill-desc">High-throughput RESTful endpoints and enterprise controller patterns</div>
+                <span class="pillar-project-tag">Used in Fedelicious Wings</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Auth &amp; Access Control</div>
+                <div class="pillar-skill-desc">Supabase Auth, Row-Level Security (RLS), and Role-Based Access Control</div>
+                <span class="pillar-project-tag">Used in One Batangas &bull; Fedelicious Wings</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Transactional Services</div>
+                <div class="pillar-skill-desc">Automated Gmail SMTP email notifications &amp; payment reference verification</div>
+                <span class="pillar-project-tag">Used in Fedelicious Wings</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3: Database -->
+          <div class="skill-pillar-card">
+            <div class="pillar-header">
+              <div class="pillar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Database</h3>
+            </div>
+            <ul class="pillar-skills-list">
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">PostgreSQL &amp; Supabase</div>
+                <div class="pillar-skill-desc">Relational schema design, RLS security policies, and foreign key relations</div>
+                <span class="pillar-project-tag">Used in One Batangas</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Microsoft SQL Server</div>
+                <div class="pillar-skill-desc">Relational modeling, table constraints, transaction safety, and indexing</div>
+                <span class="pillar-project-tag">Used in Fedelicious Wings</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Dapper ORM &amp; Stored Procedures</div>
+                <div class="pillar-skill-desc">Pre-compiled query execution and parameterized data access</div>
+                <span class="pillar-project-tag">Used in Fedelicious Wings</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 4: Deployment -->
+          <div class="skill-pillar-card">
+            <div class="pillar-header">
+              <div class="pillar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                </svg>
+              </div>
+              <h3 class="pillar-title">Deployment</h3>
+            </div>
+            <ul class="pillar-skills-list">
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">AWS EC2 &amp; Linux (Ubuntu)</div>
+                <div class="pillar-skill-desc">Cloud virtual server provisioning, SSH management, and daemon monitoring</div>
+                <span class="pillar-project-tag">Used in One Batangas</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Nginx &amp; SSL Certificates</div>
+                <div class="pillar-skill-desc">Reverse proxy routing, custom domain binding, and HTTPS security</div>
+                <span class="pillar-project-tag">Used in One Batangas</span>
+              </li>
+              <li class="pillar-skill-item">
+                <div class="pillar-skill-name">Git, GitHub &amp; Postman</div>
+                <div class="pillar-skill-desc">Feature branching, pull request reviews, and API endpoint verification</div>
+                <span class="pillar-project-tag">Used across all projects</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Supporting Technologies in a compact list -->
+        <div class="supporting-skills-box">
+          <span class="supporting-title">// Supporting Technologies &amp; Tools:</span>
+          <div class="supporting-tags">
+            <span class="supporting-chip">Three.js / WebGL</span>
+            <span class="supporting-chip">Python</span>
+            <span class="supporting-chip">ESP32 &amp; RFID Microcontrollers</span>
+            <span class="supporting-chip">Linux Bash / CLI</span>
+            <span class="supporting-chip">VS Code &amp; Visual Studio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 4: DEVELOPMENT EXPERIENCE / LEADERSHIP -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 04. DEVELOPMENT &amp; LEADERSHIP</span>
+          <h2 class="section-title">Development Experience &amp; Leadership</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="experience-clean-grid">
+
+          <!-- Role 1: One Batangas -->
+          <article class="clean-exp-card">
+            <div class="clean-exp-header">
+              <div>
+                <h3 class="clean-exp-role">Project Leader &amp; Full-Stack Developer</h3>
+                <h4 class="clean-exp-org">One Batangas: Digital Heritage Platform &bull; FAITH Colleges</h4>
+              </div>
+              <div class="clean-exp-meta">
+                <span class="clean-exp-badge">Academic Capstone Leadership</span>
+                <span class="clean-exp-period">Senior Year Milestone</span>
+              </div>
+            </div>
+
+            <ul class="clean-exp-bullets">
+              <li>Led full software development lifecycle from requirements and system architecture to live production deployment on AWS EC2, establishing team Git standards and sprint milestones.</li>
+              <li>Engineered modular Node.js/Express REST APIs and designed PostgreSQL schemas with Supabase Authentication, Row-Level Security (RLS), and Role-Based Access Control (RBAC).</li>
+              <li>Integrated AI docent service for conversational visitor guidance and configured Ubuntu Linux, Nginx reverse proxy, and SSL certificates for cloud hosting.</li>
+            </ul>
+
+            <div class="clean-exp-tags">
+              <span class="tech-tag">Full-Stack Architecture</span>
+              <span class="tech-tag">Node.js / Express</span>
+              <span class="tech-tag">PostgreSQL / Supabase</span>
+              <span class="tech-tag">AWS EC2 &amp; Nginx</span>
+              <span class="tech-tag">RBAC Security</span>
+            </div>
+          </article>
+
+          <!-- Role 2: Fedelicious Wings -->
+          <article class="clean-exp-card">
+            <div class="clean-exp-header">
+              <div>
+                <h3 class="clean-exp-role">Project Leader &amp; Full-Stack Developer</h3>
+                <h4 class="clean-exp-org">Fedelicious Wings: Ordering &amp; Reservation System &bull; FAITH Colleges</h4>
+              </div>
+              <div class="clean-exp-meta">
+                <span class="clean-exp-badge">Academic Architecture Leadership</span>
+                <span class="clean-exp-period">System Architecture Project</span>
+              </div>
+            </div>
+
+            <ul class="clean-exp-bullets">
+              <li>Directed technical design and data architecture for an end-to-end food ordering and table reservation platform connecting customer interfaces to administrative operations.</li>
+              <li>Built high-throughput REST API backend in C# with ASP.NET Web API, modeling relational tables in SQL Server and optimizing queries using Dapper ORM and stored procedures.</li>
+              <li>Implemented automated transactional email notifications via Gmail SMTP and reference-tracked GCash payment submission verification.</li>
+            </ul>
+
+            <div class="clean-exp-tags">
+              <span class="tech-tag">ASP.NET Web API (C#)</span>
+              <span class="tech-tag">Microsoft SQL Server</span>
+              <span class="tech-tag">Dapper ORM</span>
+              <span class="tech-tag">Stored Procedures</span>
+              <span class="tech-tag">SMTP Integration</span>
             </div>
           </article>
 
@@ -1146,108 +901,7 @@
       </div>
     </section>
 
-    <!-- SECTION 5: EDUCATION -->
-    <section id="education" class="section education-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">// 04. ACADEMIC FOUNDATION</span>
-          <h2 class="section-title">Education &amp; Milestones</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="code-window timeline-window">
-          <div class="window-header">
-            <div class="window-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <div class="window-tabs">
-              <span class="tab active">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 14 14"></polyline>
-                </svg>
-                education.log
-              </span>
-            </div>
-            <span class="window-info">FAITH Colleges &bull; Tanauan City</span>
-          </div>
-
-          <div class="window-body timeline-body">
-            <div class="timeline">
-
-              <!-- Item 1: Bachelor's Degree -->
-              <div class="timeline-item">
-                <div class="timeline-marker">
-                  <span class="marker-dot"></span>
-                </div>
-                <div class="timeline-content">
-                  <div class="timeline-header">
-                    <span class="timeline-period">Current &bull; Expected 2026</span>
-                    <span class="timeline-badge">BS Degree</span>
-                  </div>
-                  <h3 class="timeline-title">Bachelor of Science in Information Technology</h3>
-                  <h4 class="timeline-school">First Asia Institute of Technology and Humanities (FAITH Colleges)</h4>
-                  <p class="timeline-location">Tanauan City, Batangas, Philippines</p>
-                  <p class="timeline-desc">
-                    Comprehensive study encompassing Software Engineering, Distributed Systems, Relational &amp; NoSQL Database Design, 
-                    Data Structures &amp; Algorithms, Computer Networks, and Human-Computer Interaction.
-                  </p>
-                  <div class="timeline-tags">
-                    <span class="timeline-tag">Full-Stack Track</span>
-                    <span class="timeline-tag">Capstone Leader</span>
-                    <span class="timeline-tag">Cloud &amp; IoT</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Item 2: Capstone Project Leadership -->
-              <div class="timeline-item">
-                <div class="timeline-marker">
-                  <span class="marker-dot"></span>
-                </div>
-                <div class="timeline-content">
-                  <div class="timeline-header">
-                    <span class="timeline-period">Senior Year Milestone</span>
-                    <span class="timeline-badge badge-capstone">Capstone Lead</span>
-                  </div>
-                  <h3 class="timeline-title">Project Leader &bull; One Batangas Virtual Heritage Museum</h3>
-                  <p class="timeline-desc">
-                    Spearheaded the complete software lifecycle, system architecture design, Three.js 3D implementation, 
-                    database schema modeling, and production cloud deployment on AWS EC2. Mentored peers on Git workflows 
-                    and API standards.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 3: Core Coursework & Certifications -->
-              <div class="timeline-item">
-                <div class="timeline-marker">
-                  <span class="marker-dot"></span>
-                </div>
-                <div class="timeline-content">
-                  <div class="timeline-header">
-                    <span class="timeline-period">Continuous Learning</span>
-                    <span class="timeline-badge">Key Coursework</span>
-                  </div>
-                  <h3 class="timeline-title">Advanced IT Foundations &amp; Hands-on Labs</h3>
-                  <p class="timeline-desc">
-                    Completed rigorous coursework in Advanced Database Systems (Stored Procedures, Indexing, Transactions), 
-                    Network Administration (IP Subnetting, Routing, Cisco Packet Tracer), Web Application Architectures, 
-                    and Embedded Microcontrollers.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 6: CONTACT -->
+    <!-- SECTION 5: CONTACT -->
     <section id="contact" class="section contact-section">
       <div class="container">
         <div class="section-header">
@@ -1280,7 +934,7 @@
             <div class="window-body contact-info-body">
               <div class="terminal-banner">
                 <span class="prompt-cmd">&gt; echo $DEVELOPER_STATUS</span>
-                <p class="prompt-res">"Available for Full-Stack Developer opportunities, capstone consulting, and innovative tech collaborations."</p>
+                <p class="prompt-res">"Available for Full-Stack Developer, Software Developer, and Web Developer Internships &amp; Junior roles."</p>
               </div>
 
               <div class="contact-details-list">
@@ -1338,16 +992,11 @@
 
               </div>
 
-              <!-- Open Graph Image Slot Reminder (1200x630) -->
-              <div class="og-slot-box">
-                <span class="slot-tag">// Social Share Meta Slot:</span>
-                <span class="slot-val">images/og-cover.jpg (1200×630)</span>
-              </div>
             </div>
           </div>
 
-          <!-- Interactive Contact Form -->
-          <div class="code-window contact-form-window">
+          <!-- Direct Contact & Actions Panel -->
+          <div class="code-window contact-action-window">
             <div class="window-header">
               <div class="window-dots">
                 <span class="dot dot-red"></span>
@@ -1360,70 +1009,54 @@
                     <path d="M22 2 11 13"></path>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                   </svg>
-                  send-message.form
+                  connect.sh
                 </span>
               </div>
             </div>
 
-            <div class="window-body contact-form-body">
-              <form id="contact-form" class="contact-form" novalidate>
-                <div class="form-group">
-                  <label for="name" class="form-label">&gt; Name <span class="required">*</span></label>
-                  <div class="input-wrapper">
-                    <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Juan dela Cruz" required autocomplete="name">
-                  </div>
-                  <span class="form-error" id="name-error">Please enter your name</span>
-                </div>
+            <div class="window-body contact-action-body">
+              <h3 class="contact-action-title">Let's Connect</h3>
+              <p class="contact-action-desc">
+                I am actively seeking Full-Stack Developer and Software Engineering internship opportunities. Feel free to reach out directly by email or explore my public repositories on GitHub.
+              </p>
 
-                <div class="form-group">
-                  <label for="email" class="form-label">&gt; Email Address <span class="required">*</span></label>
-                  <div class="input-wrapper">
-                    <input type="email" id="email" name="email" class="form-input" placeholder="e.g. juan@example.com" required autocomplete="email">
-                  </div>
-                  <span class="form-error" id="email-error">Please enter a valid email</span>
-                </div>
-
-                <div class="form-group">
-                  <label for="subject" class="form-label">&gt; Subject</label>
-                  <div class="input-wrapper">
-                    <input type="text" id="subject" name="subject" class="form-input" placeholder="Job Opportunity / Project Inquiry">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="message" class="form-label">&gt; Message <span class="required">*</span></label>
-                  <div class="input-wrapper">
-                    <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Hello Mark, I'd like to discuss an opportunity..." required></textarea>
-                  </div>
-                  <span class="form-error" id="message-error">Please enter your message</span>
-                </div>
-
-                <button type="submit" id="submit-btn" class="btn btn-primary btn-block magnetic-btn">
-                  <span>Send Message</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                  </svg>
-                </button>
-
-                <p class="form-note">
-                  <span class="note-icon">ℹ</span> 
-                  Opens your email client with your message directly addressed to 
-                  <strong>fulinaramarkluis@gmail.com</strong>.
-                </p>
-              </form>
-
-              <!-- Form Success Toast Message -->
-              <div id="form-toast" class="form-toast" aria-live="polite">
-                <div class="toast-inner">
-                  <span class="toast-icon">✓</span>
-                  <div class="toast-text">
-                    <strong>Message Prepared!</strong>
-                    <span>Your email client is opening with your message.</span>
-                  </div>
+              <div class="contact-action-email-box">
+                <span class="email-box-label">// Direct Email:</span>
+                <div class="email-box-row">
+                  <a href="mailto:fulinaramarkluis@gmail.com" class="email-address-text" id="contact-email-val">fulinaramarkluis@gmail.com</a>
                 </div>
               </div>
 
+              <div class="contact-buttons-group">
+                <a href="mailto:fulinaramarkluis@gmail.com" class="btn btn-primary magnetic-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>Email Mark</span>
+                </a>
+
+                <button type="button" id="copy-email-action-btn" class="btn btn-outline magnetic-btn" aria-label="Copy email address to clipboard">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span id="copy-email-btn-text">Copy email</span>
+                </button>
+
+                <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                  <span>GitHub profile</span>
+                </a>
+              </div>
+
+              <!-- Toast notification on successful copy only -->
+              <div id="copy-toast" class="copy-toast" role="status" aria-live="polite">
+                <span class="copy-toast-icon">✓</span>
+                <span>Email copied</span>
+              </div>
             </div>
           </div>
 
@@ -1437,7 +1070,7 @@
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-left">
-        <a href="#hero" class="footer-brand">&lt;ML /&gt; fulinara.dev</a>
+        <a href="#hero" class="footer-brand">fulinara<span class="brand-accent">.dev</span></a>
         <p class="footer-copy">&copy; 2026 Mark Luis O. Fulinara. All rights reserved.</p>
         <p class="footer-location">Built with vanilla HTML, CSS, JS &amp; GSAP. Tanauan, Batangas, Philippines.</p>
       </div>
@@ -1445,7 +1078,7 @@
       <div class="footer-center">
         <div class="footer-status-pill">
           <span class="status-dot"></span>
-          <span>Open to Full-Stack Opportunities</span>
+          <span>Open to Full-Stack &amp; Software Developer Opportunities</span>
         </div>
       </div>
 

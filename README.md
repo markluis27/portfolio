@@ -1,8 +1,8 @@
-# Mark Luis O. Fulinara — Modern Developer Portfolio
+# Mark Luis O. Fulinara — Aspiring Full-Stack Developer Portfolio
 
-A modern, responsive, single-page developer portfolio website designed with a terminal / code-editor aesthetic, cybernetic glassmorphism, and a high-performance **interactive canvas binary/code rain background**.
+A modern, responsive, single-page software engineering portfolio website designed with a terminal / code-editor aesthetic, clean modern UI, and a high-performance **interactive canvas binary/code rain background**.
 
-Built for **Mark Luis O. Fulinara**, a BS Information Technology student and Full-Stack Developer from Tanauan, Batangas, Philippines.
+Built for **Mark Luis O. Fulinara**, an **Aspiring Full-Stack Developer** and BS Information Technology student from Tanauan, Batangas, Philippines, specializing in Full-Stack Development and Software Engineering.
 
 ---
 
@@ -34,23 +34,24 @@ Built for **Mark Luis O. Fulinara**, a BS Information Technology student and Ful
 
 ```text
 PORTFOLIO/
-├── index.html         # Main HTML markup, SEO tags, structured sections
-├── style.css          # Full styling, CSS variables, glassmorphism, responsive breakpoints
-├── script.js          # Canvas code rain, theme toggle, animations, utilities
-├── cv.pdf             # Starter PDF resume (replace with your real CV)
-├── favicon.svg        # Modern vector favicon
-├── README.md          # Project documentation & deployment guide
+├── index.html                    # Main HTML markup, SEO tags, structured 7 sections
+├── style.css                     # Full styling, CSS variables, glassmorphism, responsive breakpoints
+├── script.js                     # Canvas code rain, theme toggle, project pagination, animations
+├── Mark_Luis_Fulinara_Resume.pdf # Full verified PDF resume
+├── cv.pdf                        # Synchronized resume copy
+├── favicon.svg                   # Modern vector favicon
+├── README.md                     # Project documentation & deployment guide
 └── images/
-    ├── logo.svg       # Brand monogram (<ML />)
-    ├── fulinara.png   # Default hero portrait (Recommended: 800 × 1000 px)
-    ├── pxel.jpg       # Pixel art hero portrait (Recommended: 800 × 1000 px)
-    ├── about.jpg      # Workspace / about photo (Recommended: 1000 × 800 px)
-    ├── project-onebatangas.jpg   # One Batangas cover (Recommended: 1280 × 720 px)
-    ├── project-fedelicious.jpg   # Fedelicious Wings cover (Recommended: 1280 × 720 px)
-    ├── project-rfid.jpg          # Smart RFID project cover (Recommended: 1280 × 720 px)
-    ├── project-mcbank.jpg        # MC Bank UI cover (Recommended: 1280 × 720 px)
-    ├── project-regression.jpg    # Regression tool cover (Recommended: 1280 × 720 px)
-    └── og-cover.jpg              # Social share banner (Recommended: 1200 × 630 px)
+    ├── logo.svg                  # Brand monogram (<ML />)
+    ├── fulinara.png              # Default hero portrait (800 × 1000 px)
+    ├── pxel.jpg                  # Pixel art hero portrait (800 × 1000 px)
+    ├── about.jpg                 # Workspace / about photo (1000 × 800 px)
+    ├── project-onebatangas.jpg   # One Batangas cover (1280 × 720 px)
+    ├── project-fedelicious.jpg   # Fedelicious Wings cover (1280 × 720 px)
+    ├── project-rfid.jpg          # Smart RFID project cover (1280 × 720 px)
+    ├── project-mcbank.jpg        # MC Bank UI cover (1280 × 720 px)
+    ├── project-regression.jpg    # Regression tool cover (1280 × 720 px)
+    └── og-cover.jpg              # Social share banner (1200 × 630 px)
 ```
 
 ---
