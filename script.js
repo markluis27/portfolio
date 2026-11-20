@@ -45,7 +45,221 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {
       // Ignore private browsing storage restrictions
     }
+    if (window.matrixRain) {
+      window.matrixRain.setTheme(theme);
+    }
   }
+
+  /* ==========================================================================
+     2. BINARY & SYNTAX MATRIX RAIN CANVAS (Falling Words & Code Tokens)
+     ========================================================================== */
+  class BinaryMatrixRain {
+    constructor(canvasId) {
+      this.canvas = document.getElementById(canvasId);
+      if (!this.canvas) return;
+
+      this.ctx = this.canvas.getContext('2d');
+      this.isDark = htmlRoot.getAttribute('data-theme') !== 'light';
+      this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Falling words, programming syntax, and binary tokens
+      this.characters = [
+        '0', '1', '0', '1', '1', '0',
+        'const', '=>', '{ }', '</>', 'async', 'await',
+        'SELECT', 'npm run dev', 'git push', 'true', 'null',
+        'POST', 'fn', 'API', 'DB', '0x1F', 'JSON', 'req'
+      ];
+
+      this.columns = [];
+      this.fontSize = 15;
+      this.columnSpacing = 22;
+      this.lastTime = 0;
+      this.fps = 45; // Smooth cinematic cap
+      this.interval = 1000 / this.fps;
+      this.isPaused = false;
+
+      // Mouse reactivity coordinates
+      this.mouse = { x: -9999, y: -9999, radius: 120 };
+
+      this.init();
+      this.bindEvents();
+    }
+
+    init() {
+      this.resize();
+
+      if (this.prefersReducedMotion) {
+        this.renderStaticPattern();
+        return;
+      }
+
+      this.animate(0);
+    }
+
+    resize() {
+      this.width = this.canvas.width = window.innerWidth;
+      this.height = this.canvas.height = window.innerHeight;
+
+      const isMobile = this.width < 768;
+      this.fontSize = isMobile ? 16 : 14;
+      this.columnSpacing = isMobile ? 26 : 22;
+
+      const columnCount = Math.floor(this.width / this.columnSpacing);
+      this.columns = [];
+
+      for (let i = 0; i < columnCount; i++) {
+        this.columns.push({
+          x: i * this.columnSpacing,
+          y: Math.random() * -this.height,
+          speed: Math.random() * 0.75 + 0.55,
+          length: Math.floor(Math.random() * 14 + 7),
+          driftX: 0
+        });
+      }
+    }
+
+    setTheme(theme) {
+      this.isDark = theme !== 'light';
+      this.ctx.fillStyle = this.isDark ? '#070F1E' : '#FAF9F6';
+      this.ctx.fillRect(0, 0, this.width, this.height);
+
+      if (this.prefersReducedMotion) {
+        this.renderStaticPattern();
+      }
+    }
+
+    bindEvents() {
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          this.resize();
+        }, 150);
+      });
+
+      // Pause when tab is inactive
+      document.addEventListener('visibilitychange', () => {
+        this.isPaused = document.visibilityState === 'hidden';
+      });
+
+      // Mouse reactivity on fine pointers (desktop)
+      if (window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+          this.mouse.x = e.clientX;
+          this.mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+          this.mouse.x = -9999;
+          this.mouse.y = -9999;
+        });
+      }
+
+      // Reduced motion changes
+      window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+        this.prefersReducedMotion = e.matches;
+        if (this.prefersReducedMotion) {
+          this.renderStaticPattern();
+        } else {
+          this.animate(0);
+        }
+      });
+    }
+
+    renderStaticPattern() {
+      this.ctx.fillStyle = this.isDark ? '#070F1E' : '#FAF9F6';
+      this.ctx.fillRect(0, 0, this.width, this.height);
+
+      this.ctx.font = `${this.fontSize}px 'JetBrains Mono', monospace`;
+      this.ctx.fillStyle = this.isDark ? 'rgba(20, 184, 166, 0.08)' : 'rgba(100, 116, 139, 0.08)';
+
+      for (let x = 12; x < this.width; x += 36) {
+        for (let y = 24; y < this.height; y += 36) {
+          const char = Math.random() > 0.5 ? '1' : '0';
+          this.ctx.fillText(char, x, y);
+        }
+      }
+    }
+
+    animate(timestamp) {
+      if (this.prefersReducedMotion) return;
+
+      requestAnimationFrame(this.animate.bind(this));
+
+      if (this.isPaused) return;
+
+      const elapsed = timestamp - this.lastTime;
+      if (elapsed < this.interval) return;
+
+      this.lastTime = timestamp - (elapsed % this.interval);
+
+      // Soft semi-transparent wash over previous frame to create fading trails
+      this.ctx.fillStyle = this.isDark 
+        ? 'rgba(7, 15, 30, 0.14)' 
+        : 'rgba(250, 249, 246, 0.22)';
+      this.ctx.fillRect(0, 0, this.width, this.height);
+
+      this.ctx.font = `${this.fontSize}px 'JetBrains Mono', monospace`;
+
+      for (let i = 0; i < this.columns.length; i++) {
+        const col = this.columns[i];
+        const char = this.characters[Math.floor(Math.random() * this.characters.length)];
+
+        // Compute mouse repulsion / glow
+        const dx = col.x - this.mouse.x;
+        const dy = col.y - this.mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const isNearMouse = dist < this.mouse.radius;
+
+        if (isNearMouse) {
+          col.driftX = (dx / dist) * 10;
+        } else {
+          col.driftX *= 0.92;
+        }
+
+        const renderX = col.x + col.driftX;
+        const renderY = col.y;
+
+        if (this.isDark) {
+          if (isNearMouse) {
+            this.ctx.fillStyle = '#FFFFFF';
+            this.ctx.shadowBlur = 8;
+            this.ctx.shadowColor = '#14B8A6';
+          } else {
+            const isCyan = i % 3 === 0;
+            this.ctx.fillStyle = isCyan ? 'rgba(61, 220, 255, 0.40)' : 'rgba(20, 184, 166, 0.40)';
+            this.ctx.shadowBlur = 3;
+            this.ctx.shadowColor = isCyan ? '#3DDCFF' : '#14B8A6';
+          }
+        } else {
+          // Light Mode: clean readable contrast
+          if (isNearMouse) {
+            this.ctx.fillStyle = '#0D9488';
+            this.ctx.shadowBlur = 4;
+            this.ctx.shadowColor = '#0D9488';
+          } else {
+            const isTeal = i % 3 === 0;
+            this.ctx.fillStyle = isTeal ? 'rgba(13, 148, 136, 0.26)' : 'rgba(100, 116, 139, 0.22)';
+            this.ctx.shadowBlur = 0;
+          }
+        }
+
+        this.ctx.fillText(char, renderX, renderY);
+
+        col.y += this.fontSize * col.speed;
+
+        if (col.y > this.height + 40 && Math.random() > 0.96) {
+          col.y = -20;
+          col.speed = Math.random() * 0.75 + 0.55;
+        }
+      }
+
+      this.ctx.shadowBlur = 0;
+    }
+  }
+
+  // Instantiate Matrix Rain Canvas
+  window.matrixRain = new BinaryMatrixRain('binary-canvas');
 
   // Initial theme application
   const currentTheme = getPreferredTheme();
@@ -71,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     2. SCROLL PROGRESS BAR & ACTIVE SECTION NAVIGATION
+     3. SCROLL PROGRESS BAR & ACTIVE SECTION NAVIGATION
      ========================================================================== */
   const scrollProgressBar = document.getElementById('scroll-progress');
   const navbarWrapper = document.querySelector('.navbar-wrapper');
