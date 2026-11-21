@@ -28,7 +28,7 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0 25px rgba(34, 242, 165, 0.25);
+  --shadow-glow: 0 0 25px var(--accent-subtle);
 }
 
 /* DARK THEME */
@@ -296,11 +296,14 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-mono);
   font-size: 0.85rem;
+  gap: 0.75rem;
+  min-width: 0;
 }
 .window-dots {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 .dot {
   width: 11px;
@@ -323,11 +326,18 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
 }
 .window-tabs .tab {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  max-width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: 0.25rem 0.75rem;
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
@@ -591,8 +601,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #22F2A5;
-  box-shadow: 0 0 8px #22F2A5;
+  background: var(--accent-teal-hover);
+  box-shadow: 0 0 8px var(--accent-glow);
   animation: pulseDot 2s infinite;
 }
 
@@ -880,7 +890,7 @@ html[data-theme="light"] .moon-icon {
 .portrait-interactive-frame:hover {
   transform: translateY(-2px);
   border-color: var(--accent-green);
-  box-shadow: 0 0 25px var(--accent-glow), 0 0 45px rgba(61, 220, 255, 0.2);
+  box-shadow: 0 0 25px var(--accent-glow), 0 0 45px var(--accent-subtle);
 }
 .portrait-interactive-frame:focus-visible {
   outline: 2px solid var(--accent-green);
@@ -888,7 +898,7 @@ html[data-theme="light"] .moon-icon {
 }
 .portrait-interactive-frame.pixel-mode-active {
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 30px rgba(61, 220, 255, 0.35), 0 0 60px var(--accent-subtle);
+  box-shadow: 0 0 30px var(--accent-glow), 0 0 60px var(--accent-subtle);
 }
 
 /* Countdown Progress Bar */
@@ -946,7 +956,7 @@ html[data-theme="light"] .moon-icon {
   transform: translate(-50%, -50%);
   border: 1.5px solid var(--accent-green);
   border-radius: 50%;
-  box-shadow: 0 0 14px var(--accent-green), inset 0 0 8px rgba(34, 242, 165, 0.25);
+  box-shadow: 0 0 14px var(--accent-green), inset 0 0 8px var(--accent-subtle);
   pointer-events: none;
   z-index: 6;
   opacity: 0;
@@ -1001,7 +1011,7 @@ html[data-theme="light"] .portrait-caption-bar {
 .hero-portrait-window.pixel-mode-active .portrait-caption-bar {
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
-  box-shadow: 0 0 15px rgba(61, 220, 255, 0.25);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .hint-pulse-dot {
@@ -1023,8 +1033,8 @@ html[data-theme="light"] .portrait-caption-bar {
 }
 .floating-badge {
   position: absolute;
-  bottom: 2rem;
-  right: 0.25rem;
+  top: 2rem;
+  right: 0.5rem;
   background: var(--bg-surface-elevated);
   backdrop-filter: blur(12px);
   border: 1px solid var(--accent-green);
@@ -1067,6 +1077,8 @@ html[data-theme="light"] .portrait-caption-bar {
   font-size: 1.15rem;
   line-height: 1.75;
   color: var(--text-primary);
+  max-width: 62ch;
+  text-wrap: pretty;
 }
 .open-about-credentials {
   display: flex;
@@ -1104,7 +1116,8 @@ html[data-theme="light"] .portrait-caption-bar {
   color: var(--text-secondary);
 }
 
-.open-about-visual {
+.open-about-visual,
+.open-about-portrait {
   width: 100%;
 }
 .about-placeholder {
@@ -1144,6 +1157,7 @@ html[data-theme="light"] .portrait-caption-bar {
   padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--border-subtle);
 }
+.pillar-icon,
 .pillar-icon-box {
   width: 40px;
   height: 40px;
@@ -1162,14 +1176,50 @@ html[data-theme="light"] .portrait-caption-bar {
   color: var(--text-primary);
 }
 .pillar-skills-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0;
 }
 .pillar-skill-item {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.2rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+.pillar-skill-item:first-child {
+  padding-top: 0;
+}
+.pillar-skill-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.pillar-skill-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+/* "Used in" proof link back to the projects: the recruiter's evidence trail */
+.pillar-project-tag {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent-teal);
+  background: var(--accent-teal-subtle);
+  border: 1px solid var(--accent-teal-border);
+  border-radius: var(--radius-sm);
+}
+.pillar-project-tag::before {
+  content: '↳';
+  font-weight: 700;
 }
 .pillar-skill-name {
   font-family: var(--font-sans);
@@ -1198,19 +1248,36 @@ html[data-theme="light"] .portrait-caption-bar {
   border-radius: var(--radius-md);
   padding: 1.5rem 1.75rem;
 }
-.supporting-skills-title {
+.supporting-skills-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+}
+.supporting-title {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--accent-teal);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.85rem;
+  color: var(--text-muted);
 }
-.supporting-tags-wrap {
+.supporting-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+.supporting-chip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.7rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-window);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.supporting-chip:hover {
+  color: var(--accent-teal);
+  border-color: var(--accent-teal-border);
 }
 
 /* --------------------------------------------------------------------------
@@ -1232,10 +1299,12 @@ html[data-theme="light"] .portrait-caption-bar {
 
 .project-badge {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   padding: 0.2rem 0.7rem;
   border-radius: var(--radius-pill);
   font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .badge-featured {
   background: var(--badge-feat-bg);
@@ -1244,7 +1313,7 @@ html[data-theme="light"] .portrait-caption-bar {
 }
 .badge-secondary {
   background: rgba(61, 220, 255, 0.12);
-  border: 1px solid rgba(61, 220, 255, 0.35);
+  border: 1px solid var(--accent-glow);
   color: var(--accent-cyan);
 }
 .badge-iot {
@@ -1531,27 +1600,51 @@ details[open] .disclosure-chevron {
 /* --------------------------------------------------------------------------
    DEVELOPMENT EXPERIENCE & LEADERSHIP SECTION
    -------------------------------------------------------------------------- */
-.experience-grid {
-  display: flex;
-  flex-direction: column;
-/* --------------------------------------------------------------------------
-   DEVELOPMENT EXPERIENCE & LEADERSHIP SECTION (2-3 BULLETS PER ROLE)
-   -------------------------------------------------------------------------- */
 .experience-clean-grid {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 .clean-exp-card {
+  position: relative;
   background: var(--bg-surface);
   border: 1px solid var(--border-window);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 2.25rem;
+  overflow: hidden;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
+/* Commit-graph rail on the left edge: ties each role to the git motif */
+.clean-exp-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent-teal);
+  opacity: 0.55;
+  transition: opacity var(--transition-fast);
+}
 .clean-exp-card:hover {
-  border-color: var(--accent-teal);
+  border-color: var(--accent-teal-border);
   box-shadow: var(--shadow-md);
+}
+.clean-exp-card:hover::before {
+  opacity: 1;
+}
+.clean-exp-org {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+  letter-spacing: 0;
+}
+.clean-exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 .clean-exp-header {
   display: flex;
@@ -1571,11 +1664,11 @@ details[open] .disclosure-chevron {
   line-height: 1.3;
 }
 .clean-exp-meta {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
 }
 .clean-exp-badge {
   font-family: var(--font-mono);
@@ -1881,15 +1974,16 @@ details[open] .disclosure-chevron {
   align-items: center;
   gap: 0.6rem;
   padding: 0.75rem 1rem;
-  background: rgba(34, 242, 165, 0.12);
-  border: 1px solid var(--accent-green);
+  background: var(--accent-teal-subtle);
+  border: 1px solid var(--accent-teal-border);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--accent-green);
   animation: fadeIn 0.25s ease;
 }
-.copy-toast.active {
+.copy-toast.active,
+.copy-toast.visible {
   display: flex;
 }
 .copy-toast-icon {
@@ -2064,4 +2158,1152 @@ details[open] .disclosure-chevron {
   .glitch-hover:hover {
     animation: none !important;
   }
+}
+
+/* --------------------------------------------------------------------------
+   19. REFINEMENTS (layout fixes & typographic polish)
+   -------------------------------------------------------------------------- */
+
+/* Headlines wrap evenly; body copy avoids orphans */
+.hero-name,
+.section-title,
+.project-title,
+.clean-exp-role {
+  text-wrap: balance;
+}
+.hero-bio,
+.project-desc,
+.project-contribution,
+.clean-exp-bullets li,
+.other-card-desc {
+  text-wrap: pretty;
+}
+.hero-bio {
+  max-width: 54ch;
+}
+
+/* Tabular figures keep dimensions and dates aligned */
+.placeholder-dimension,
+.window-tag,
+.nav-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Empty image slots read as an intentional "awaiting asset" state */
+.img-placeholder-container.no-file {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 14px,
+    var(--accent-subtle) 14px 15px
+  );
+}
+
+/* Featured cards: actions sit on the same baseline across both columns */
+.featured-card .project-actions {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+/* Experience header: role on the left, badges stack on the right */
+.clean-exp-header > div:first-child {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+/* Navbar: give the links room at laptop widths */
+@media (max-width: 1240px) {
+  .nav-links {
+    gap: 1.25rem;
+  }
+  .status-badge {
+    display: none;
+  }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  .nav-num {
+    display: none;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile drawer: larger tap targets and a clear current item */
+.mobile-link {
+  padding: 0.35rem 0;
+  transition: color var(--transition-fast);
+}
+.mobile-link:hover,
+.mobile-link:focus-visible {
+  color: var(--accent-teal);
+}
+
+@media (max-width: 768px) {
+  .clean-exp-card {
+    padding: 1.5rem 1.25rem 1.5rem 1.5rem;
+  }
+  .clean-exp-meta {
+    align-items: flex-start;
+  }
+  .contact-info-body,
+  .contact-action-body {
+    padding: 1.5rem 1.25rem;
+  }
+  .project-inner,
+  .featured-card .project-inner {
+    padding: 1.25rem;
+  }
+  .window-header {
+    padding: 0.65rem 1rem;
+  }
+  .floating-badge {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .email-address-text {
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-badge {
+    display: none;
+  }
+  .portrait-placeholder {
+    min-height: 0;
+  }
+}
+
+/* Keep long bullets readable; trim trailing space in the contact card */
+.clean-exp-bullets li {
+  max-width: 78ch;
+}
+.contact-details-list {
+  margin-bottom: 0;
+}
+.window-tag {
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .window-tag {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. PROJECTS CAROUSEL (landscape cards, prev/next navigation)
+   -------------------------------------------------------------------------- */
+.project-carousel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "prev view next"
+    ".    foot .";
+  align-items: center;
+  column-gap: 1.25rem;
+  row-gap: 1.75rem;
+}
+.carousel-prev { grid-area: prev; }
+.carousel-next { grid-area: next; }
+.carousel-viewport { grid-area: view; }
+.carousel-footer { grid-area: foot; }
+
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  /* Room for card shadow & hover glow without clipping */
+  padding: 14px;
+  margin: -14px;
+  border-radius: var(--radius-lg);
+  transition: height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.carousel-viewport:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: -4px;
+}
+
+.carousel-track {
+  --gap: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  transform: translateX(calc(var(--index, 0) * -1 * (100% + var(--gap))));
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Slides: outgoing cards recede, the active one comes forward */
+.project-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  opacity: 0.25;
+  transform: scale(0.93);
+  transition: opacity 0.55s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+.project-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Landscape layout: screenshot left, story right */
+.project-slide .project-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.25rem;
+  padding: 2rem;
+  align-items: center;
+}
+.project-slide .project-placeholder {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+.project-slide .project-details {
+  gap: 1rem;
+}
+
+/* Entrance choreography for the card that just arrived.
+   --dir is 1 when moving forward, -1 when moving back. */
+.project-slide.is-entering .project-img-wrapper {
+  animation: slideImgIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.project-slide.is-entering .project-details > * {
+  animation: slideTextIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.project-slide.is-entering .project-details > *:nth-child(1) { animation-delay: 0.12s; }
+.project-slide.is-entering .project-details > *:nth-child(2) { animation-delay: 0.18s; }
+.project-slide.is-entering .project-details > *:nth-child(3) { animation-delay: 0.24s; }
+.project-slide.is-entering .project-details > *:nth-child(4) { animation-delay: 0.30s; }
+.project-slide.is-entering .project-details > *:nth-child(5) { animation-delay: 0.36s; }
+.project-slide.is-entering .project-details > *:nth-child(6) { animation-delay: 0.42s; }
+
+@keyframes slideImgIn {
+  from { opacity: 0; transform: translateX(calc(var(--dir, 1) * 40px)) scale(1.04); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes slideTextIn {
+  from { opacity: 0; transform: translateX(calc(var(--dir, 1) * 28px)); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Prev / next buttons */
+.carousel-btn {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-window);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast), transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+.carousel-btn:hover {
+  background: var(--accent-teal);
+  border-color: var(--accent-teal);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+.carousel-prev:hover svg { transform: translateX(-2px); }
+.carousel-next:hover svg { transform: translateX(2px); }
+.carousel-btn svg { transition: transform var(--transition-fast); }
+.carousel-btn:active {
+  transform: scale(0.92);
+}
+
+/* Dots + counter */
+.carousel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--border-window);
+  cursor: pointer;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background var(--transition-fast);
+}
+.carousel-dot:hover {
+  background: var(--accent-teal-border);
+}
+.carousel-dot[aria-current="true"] {
+  width: 28px;
+  background: var(--accent-teal);
+}
+.carousel-counter {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+#carousel-current {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .project-slide .project-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-carousel {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "view view view"
+      "prev foot next";
+    row-gap: 1.25rem;
+  }
+  .carousel-viewport {
+    padding: 8px;
+    margin: -8px;
+  }
+  .carousel-track {
+    --gap: 1rem;
+  }
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .project-slide .project-inner {
+    padding: 1.25rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   21. AI ASSISTANT (ask-mark.sh)
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.chatbot {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.85rem;
+}
+
+.chatbot-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.15rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent-teal);
+  background: var(--accent-teal);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 28px var(--accent-glow), var(--shadow-md);
+  transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+.chatbot-launcher:hover {
+  background: var(--accent-teal-hover);
+  transform: translateY(-2px);
+}
+.chatbot.is-open .chatbot-launcher {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-window);
+  box-shadow: var(--shadow-sm);
+}
+
+.chatbot-panel {
+  width: min(380px, calc(100vw - 2rem));
+  height: min(560px, calc(100vh - 7.5rem));
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface-elevated);
+  box-shadow: var(--shadow-lg);
+  transform-origin: bottom right;
+  animation: chatbotIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chatbot-panel[hidden] {
+  display: none;
+}
+.chatbot-panel:hover {
+  border-color: var(--border-window);
+}
+@keyframes chatbotIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+.chatbot-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.chatbot-close:hover {
+  color: var(--text-primary);
+  border-color: var(--border-window);
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overscroll-behavior: contain;
+}
+
+.chat-msg {
+  max-width: 88%;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  animation: fadeIn 0.25s ease;
+}
+.chat-msg p + p,
+.chat-msg p + ul,
+.chat-msg ul + p {
+  margin-top: 0.45rem;
+}
+.chat-msg ul {
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.chat-msg a {
+  color: var(--accent-teal);
+}
+.chat-msg-bot {
+  align-self: flex-start;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-top-left-radius: 4px;
+  color: var(--text-primary);
+}
+.chat-msg-user {
+  align-self: flex-end;
+  background: var(--accent-teal);
+  color: #FFFFFF;
+  border-top-right-radius: 4px;
+}
+.chat-msg-error {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px dashed var(--border-window);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* Typing indicator */
+.chat-typing {
+  display: inline-flex;
+  gap: 4px;
+  padding: 0.85rem 0.95rem;
+}
+.chat-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-teal);
+  animation: chatTyping 1.1s infinite ease-in-out;
+}
+.chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes chatTyping {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+
+.chatbot-suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.chatbot-chip {
+  text-align: left;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent-teal-border);
+  background: var(--accent-teal-subtle);
+  color: var(--accent-teal);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.chatbot-chip:hover {
+  background: var(--accent-teal);
+  color: #FFFFFF;
+}
+
+.chatbot-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.chatbot-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-window);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+.chatbot-input::placeholder {
+  color: var(--text-muted);
+}
+.chatbot-input:focus {
+  outline: none;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px var(--accent-teal-subtle);
+}
+.chatbot-send {
+  width: 42px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-teal);
+  background: var(--accent-teal);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background var(--transition-fast), opacity var(--transition-fast);
+}
+.chatbot-send:hover {
+  background: var(--accent-teal-hover);
+}
+.chatbot-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.chatbot-note {
+  padding: 0 0.9rem 0.7rem;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .chatbot {
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .chatbot-launcher {
+    padding: 0.75rem;
+  }
+  .chatbot-launcher-text {
+    display: none;
+  }
+  .chatbot-panel {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 6.5rem);
+  }
+}
+
+/* Real images: drop the dashed "missing file" frame */
+.img-placeholder-container.has-file {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-code);
+  background-image: none;
+}
+.img-placeholder-container.has-file .placeholder-overlay {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   22. PROJECT CARDS: one consistent size that fits the visitor's screen
+   -------------------------------------------------------------------------- */
+.projects-section {
+  padding-top: 3rem;
+}
+.projects-section .section-header {
+  margin-bottom: 1.5rem;
+}
+
+/* Every slide gets the same body height, sized to the viewport:
+   room is left for the navbar, section heading, card header and dots. */
+.project-slide {
+  --slide-body-h: clamp(360px, calc(100svh - 395px), 520px);
+}
+.project-slide .project-inner {
+  height: var(--slide-body-h);
+  align-items: stretch;
+  padding: 1.75rem 2rem;
+  gap: 2rem;
+}
+.project-slide .project-img-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+}
+.project-slide .project-img-wrapper .project-placeholder {
+  width: 100%;
+  max-height: 100%;
+}
+
+/* Text column: centred when it fits, scrolls inside the card when it doesn't
+   (e.g. after opening "Project details"), so the card never grows. */
+.project-slide .project-details {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.5rem;
+  gap: 0.9rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-window) transparent;
+}
+.project-slide .project-details > :first-child { margin-top: auto; }
+.project-slide .project-details > :last-child { margin-bottom: auto; }
+.project-slide .project-details::-webkit-scrollbar { width: 6px; }
+.project-slide .project-details::-webkit-scrollbar-thumb {
+  background: var(--border-window);
+  border-radius: 3px;
+}
+
+.project-slide .project-title {
+  font-size: clamp(1.25rem, 1.9vw, 1.6rem);
+}
+.project-slide .project-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.project-slide .project-details-disclosure {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+/* Buttons stay visible at the bottom of the text column even when it scrolls */
+.project-slide .project-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  margin-top: 0.25rem;
+  padding: 0.6rem 0 0;
+  background: linear-gradient(to bottom, transparent, var(--bg-surface) 35%);
+}
+
+/* Stacked layout on tablets and phones: natural height, no inner scroll */
+@media (max-width: 960px) {
+  .project-slide .project-inner {
+    height: auto;
+  }
+  .project-slide .project-details {
+    overflow: visible;
+    padding-right: 0;
+  }
+  .project-slide .project-actions {
+    position: static;
+    background: none;
+  }
+  .project-slide .project-details > :first-child,
+  .project-slide .project-details > :last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Balance image and text, keep the details toggle slim */
+.project-slide .project-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.project-slide .project-category {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.project-slide .project-meta .project-title {
+  margin-top: 0.2rem;
+}
+.project-slide .project-details-summary {
+  padding: 0.35rem 0.7rem;
+}
+.project-slide .tech-tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+}
+@media (max-width: 960px) {
+  .project-slide .project-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Details toggle lives in the button row; opening it drops the list below the buttons */
+.project-slide .project-actions {
+  position: static;
+  background: none;
+  padding-top: 0;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.project-slide .project-actions .project-details-disclosure {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.project-slide .project-actions .project-details-summary {
+  height: 100%;
+  min-height: 34px;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid var(--border-window);
+  color: var(--text-primary);
+}
+.project-slide .project-actions .project-details-summary:hover,
+.project-slide .project-actions details[open] .project-details-summary {
+  background: var(--accent-teal-subtle);
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+}
+.project-slide .project-actions details[open] {
+  flex-basis: 100%;
+}
+.project-slide .project-actions details[open] .project-details-summary {
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   23. ABOUT: portrait photo
+   -------------------------------------------------------------------------- */
+.open-about-wrapper {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  align-items: center;
+}
+.open-about-portrait {
+  justify-self: end;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+/* Offset outline behind the photo, echoing the teal accent */
+.open-about-portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translate(14px, 14px);
+  border: 1px solid var(--accent-teal-border);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+.about-placeholder {
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.about-placeholder .placeholder-img {
+  object-position: 45% 72%;
+}
+@media (max-width: 1024px) {
+  .open-about-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .open-about-portrait {
+    justify-self: center;
+    max-width: 360px;
+  }
+}
+@media (max-width: 480px) {
+  .open-about-portrait {
+    max-width: calc(100% - 14px);
+    justify-self: start;
+  }
+}
+/* Zoom the night street shot in on Mark so he fills the frame */
+.about-placeholder .placeholder-img {
+  transform: scale(1.45);
+  transform-origin: 43% 57%;
+}
+
+/* Details toggle matches the .btn-sm buttons beside it exactly */
+.project-slide .project-actions {
+  align-items: center;
+}
+.project-slide .project-actions .project-details-disclosure {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: center;
+}
+.project-slide .project-actions .project-details-summary {
+  height: auto;
+  min-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.65;
+  border-radius: var(--radius-sm);
+}
+.project-slide .project-actions .project-details-summary .disclosure-chevron {
+  width: 15px;
+  height: 15px;
+}
+.project-slide .project-actions details[open] {
+  align-items: flex-start;
+}
+/* Keep Live / GitHub / Details on one line in the card */
+.project-slide .project-actions {
+  gap: 0.5rem;
+}
+.project-slide .project-actions > .btn-sm,
+.project-slide .project-actions .project-details-summary {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+/* When the text column is too narrow for three buttons in a row,
+   use a tidy grid: Live | GitHub on top, Details full width underneath. */
+.project-slide .project-details {
+  container-type: inline-size;
+  container-name: project-text;
+}
+@container project-text (max-width: 440px) {
+  .project-slide .project-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .project-slide .project-actions > .btn-sm {
+    width: 100%;
+  }
+  .project-slide .project-actions:has(> a + a) .project-details-disclosure {
+    grid-column: 1 / -1;
+  }
+  .project-slide .project-actions .project-details-disclosure,
+  .project-slide .project-actions .project-details-summary {
+    width: 100%;
+  }
+}
+/* Button labels never wrap; in very narrow columns drop the small icons to make room */
+.project-slide .project-actions > .btn-sm,
+.project-slide .project-actions .project-details-summary {
+  white-space: nowrap;
+}
+@container project-text (max-width: 340px) {
+  .project-slide .project-actions > .btn-sm {
+    font-size: 0.76rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .project-slide .project-actions > .btn-sm svg {
+    display: none;
+  }
+}
+/* Identical height for every button in the row */
+.project-slide .project-actions > .btn-sm,
+.project-slide .project-actions .project-details-summary {
+  height: 36px;
+  min-height: 36px;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   24. Scroll only when "Details" is open
+   -------------------------------------------------------------------------- */
+@media (min-width: 961px) {
+  /* All cards share the height of the tallest one */
+  .carousel-track {
+    align-items: stretch;
+  }
+  .project-slide {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Closed: at least the screen-fitted height, taller if the text needs it, never scrolls */
+  .project-slide .project-inner {
+    flex: 1;
+    height: auto;
+    min-height: var(--slide-body-h);
+  }
+  .project-slide .project-details {
+    overflow: hidden;
+  }
+  /* Open: the card height is locked by script and only the text column scrolls */
+  .project-slide.details-open .project-details {
+    overflow-y: auto;
+  }
+}
+@media (min-width: 961px) {
+  /* One row that can shrink below its content, so an open list scrolls instead of stretching */
+  .project-slide .project-inner {
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .project-slide.details-open .project-inner {
+    flex: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   25. ASSISTANT VOICE (pre-recorded answers in Mark's voice)
+   -------------------------------------------------------------------------- */
+.chatbot-voice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  margin-left: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--accent-teal);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.chatbot-voice:hover {
+  border-color: var(--border-window);
+}
+.chatbot-voice .icon-voice-off { display: none; }
+.chatbot-voice[aria-pressed="false"] { color: var(--text-muted); }
+.chatbot-voice[aria-pressed="false"] .icon-voice-on { display: none; }
+.chatbot-voice[aria-pressed="false"] .icon-voice-off { display: block; }
+
+.chat-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent-teal-border);
+  background: var(--accent-teal-subtle);
+  color: var(--accent-teal);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.chat-play:hover {
+  background: var(--accent-teal);
+  color: #FFFFFF;
+}
+.chat-play[hidden] {
+  display: none;
+}
+/* While speaking: the label becomes animated bars */
+.chat-play.is-playing span {
+  font-size: 0;
+}
+.chat-play.is-playing span::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  background:
+    linear-gradient(currentColor, currentColor) 0 100% / 3px 40% no-repeat,
+    linear-gradient(currentColor, currentColor) 5px 100% / 3px 90% no-repeat,
+    linear-gradient(currentColor, currentColor) 10px 100% / 3px 60% no-repeat,
+    linear-gradient(currentColor, currentColor) 15px 100% / 3px 80% no-repeat;
+  animation: chatVoiceBars 0.9s ease-in-out infinite alternate;
+}
+@keyframes chatVoiceBars {
+  0%   { background-size: 3px 40%, 3px 90%, 3px 60%, 3px 80%; }
+  50%  { background-size: 3px 90%, 3px 50%, 3px 100%, 3px 40%; }
+  100% { background-size: 3px 60%, 3px 100%, 3px 40%, 3px 90%; }
+}
+
+/* --------------------------------------------------------------------------
+   26. TALK TO MARK: person-style header and launcher
+   -------------------------------------------------------------------------- */
+.chatbot-launcher {
+  padding: 0.4rem 1.1rem 0.4rem 0.4rem;
+}
+.chatbot-launcher-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+.chatbot-panel .window-header {
+  padding: 0.7rem 0.9rem;
+}
+.chatbot-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+}
+.chatbot-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--bg-surface-elevated), 0 0 0 3.5px var(--accent-teal);
+}
+.chatbot-identity-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.25;
+}
+.chatbot-name {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chatbot-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+.chatbot-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-teal-hover);
+}
+.chatbot-voice {
+  margin-left: 0;
+}
+@media (max-width: 480px) {
+  .chatbot-launcher {
+    padding: 0.35rem;
+  }
+}
+
+/* No photo: a voice mark stands in for the avatar */
+.chatbot-launcher-avatar,
+.chatbot-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.chatbot-launcher-avatar {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+.chatbot-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--accent-teal-subtle);
+  color: var(--accent-teal);
+}
+/* The voice mark pulses while Mark is speaking */
+.chatbot.is-speaking .chatbot-avatar svg line,
+.chatbot.is-speaking .chatbot-launcher-avatar svg line {
+  transform-origin: center;
+  animation: voiceMark 0.8s ease-in-out infinite alternate;
+}
+.chatbot.is-speaking svg line:nth-child(2) { animation-delay: 0.15s; }
+.chatbot.is-speaking svg line:nth-child(3) { animation-delay: 0.3s; }
+.chatbot.is-speaking svg line:nth-child(4) { animation-delay: 0.45s; }
+@keyframes voiceMark {
+  from { transform: scaleY(0.45); }
+  to   { transform: scaleY(1); }
+}
+
+/* No face/avatar: plain voice icon on the launcher only */
+.chatbot-launcher {
+  padding: 0.75rem 1.15rem;
+}
+.chatbot-launcher-icon {
+  display: inline-flex;
+  color: currentColor;
+}
+.chatbot.is-speaking .chatbot-launcher-icon svg line {
+  transform-origin: center;
+  animation: voiceMark 0.8s ease-in-out infinite alternate;
+}
+.chatbot-identity {
+  gap: 0;
+}
+@media (max-width: 480px) {
+  .chatbot-launcher {
+    padding: 0.8rem;
+  }
+}
+
+/* Talk to Mark window is fully opaque: nothing behind it (like the hero photo) shows through */
+.chatbot-panel {
+  background: #0F2133;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-theme="light"] .chatbot-panel {
+  background: #FFFFFF;
+}
+.chatbot-panel .window-header {
+  background: #0B1828;
+}
+html[data-theme="light"] .chatbot-panel .window-header {
+  background: #F4EFEB;
+}
+@keyframes chatbotIn {
+  from { transform: translateY(12px) scale(0.97); }
+  to   { transform: none; }
 }

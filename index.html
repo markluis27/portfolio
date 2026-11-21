@@ -27,7 +27,7 @@
   <meta property="twitter:image" content="images/og-cover.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
   
   <!-- Google Fonts: JetBrains Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
 
   <!-- Preload Portrait Images -->
   <link rel="preload" as="image" href="images/fulinara.png">
-  <link rel="preload" as="image" href="images/pxel.jpg">
+  <link rel="preload" as="image" href="images/w.jpg">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -118,7 +118,7 @@
         <li><a href="#contact" class="mobile-link"><span class="nav-num">05.</span> contact.sh</a></li>
       </ul>
       <div class="mobile-drawer-footer">
-        <a href="Mark_Luis_Fulinara_Resume.pdf" download="Mark_Luis_Fulinara_Resume.pdf" class="btn btn-primary btn-block">Download Résumé</a>
+        <a href="mailto:fulinaramarkluis@gmail.com?subject=R%C3%A9sum%C3%A9%20request" class="btn btn-primary btn-block">Request résumé</a>
       </div>
     </div>
   </div>
@@ -155,13 +155,12 @@
               </svg>
             </a>
             
-            <a href="Mark_Luis_Fulinara_Resume.pdf" download="Mark_Luis_Fulinara_Resume.pdf" class="btn btn-outline magnetic-btn">
+            <a href="mailto:fulinaramarkluis@gmail.com?subject=R%C3%A9sum%C3%A9%20request" class="btn btn-outline magnetic-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              <span>Download Résumé</span>
+              <span>Request résumé</span>
             </a>
           </div>
 
@@ -239,9 +238,9 @@
                   </div>
                 </div>
 
-                <!-- Top Layer: Pixel Version (images/pxel.jpg), masked by spotlight radial gradient -->
+                <!-- Top Layer: Pixel Version (images/w.jpg), masked by spotlight radial gradient -->
                 <div id="layer-pixel" class="portrait-layer layer-pixel">
-                  <div class="img-placeholder-container portrait-placeholder" data-filename="images/pxel.jpg" data-size="800x1000">
+                  <div class="img-placeholder-container portrait-placeholder" data-filename="images/w.jpg" data-size="1024x1024">
                     <div class="placeholder-overlay">
                       <div class="placeholder-icon">
                         <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -256,13 +255,13 @@
                           <rect x="16" y="16" width="4" height="4" fill="currentColor"></rect>
                         </svg>
                       </div>
-                      <span class="placeholder-filename">images/pxel.jpg</span>
+                      <span class="placeholder-filename">images/w.jpg</span>
                       <span class="placeholder-dimension">800 × 1000 px</span>
-                      <span class="placeholder-note">Pixel Art Version</span>
+                      <span class="placeholder-note">Black &amp; White Version</span>
                     </div>
                     <img id="img-pxel" 
-                         src="images/pxel.jpg" 
-                         alt="Pixel art version of Mark Luis Fulinara" 
+                         src="images/w.jpg" 
+                         alt="Black and white portrait of Mark Luis Fulinara" 
                          class="placeholder-img" 
                          loading="eager" 
                          onerror="this.style.display='none';">
@@ -280,12 +279,6 @@
 
               </div>
 
-              <!-- Code-style Caption below the photo -->
-              <div class="portrait-caption-bar" aria-live="polite">
-                <span class="hint-pulse-dot" aria-hidden="true"></span>
-                <span id="portrait-caption-text" class="caption-text">// brush to reveal, click to pixelate</span>
-              </div>
-
               <!-- Floating Terminal Pill -->
               <div class="floating-badge">
                 <span class="badge-icon">⚡</span>
@@ -298,20 +291,25 @@
       </div>
     </section>
 
-    <!-- SECTION 1: PROJECTS -->
+    <!-- SECTION 1: PROJECTS (landscape carousel) -->
     <section id="projects" class="section projects-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">// 01. FEATURED WORK</span>
-          <h2 class="section-title">Projects &amp; Deployments</h2>
+          <span class="section-tag">// 01. PROJECTS</span>
+          <h2 class="section-title">Projects</h2>
           <div class="section-line"></div>
         </div>
 
-        <!-- Featured Projects Grid (2 Cards on Desktop, Stacked on Mobile) -->
-        <div class="featured-projects-grid">
-          
+        <div class="project-carousel" id="project-carousel" aria-roledescription="carousel" aria-label="Projects">
+          <button type="button" class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous project">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+
+          <div class="carousel-viewport" id="carousel-viewport" tabindex="0" aria-label="Project slides. Use the left and right arrow keys to browse.">
+            <div class="carousel-track" id="carousel-track">
+
           <!-- FEATURED PROJECT 1: ONE BATANGAS -->
-          <article class="code-window project-card featured-card" data-tilt>
+          <article class="code-window project-card project-slide">
             <div class="window-header">
               <div class="window-dots">
                 <span class="dot dot-red"></span>
@@ -347,16 +345,12 @@
 
               <div class="project-details">
                 <div class="project-meta">
-                  <span class="project-category">Full-Stack Software Architecture &bull; Capstone Project</span>
+                  <span class="project-category">Full-Stack &bull; Capstone Project</span>
                   <h3 class="project-title">One Batangas: Cultural Heritage Platform</h3>
                 </div>
 
                 <p class="project-desc">
                   Built for cultural researchers, students, and visitors to explore Batangas heritage through interactive maps, multimedia archives, and AI-guided conversational exhibits.
-                </p>
-
-                <p class="project-contribution">
-                  <strong>Contribution:</strong> Project Leader &amp; Full-Stack Developer — Architected the Node.js/Express REST APIs, structured the Supabase PostgreSQL database schema with role-based security, and deployed the production stack on AWS EC2.
                 </p>
 
                 <div class="project-tech-tags">
@@ -365,24 +359,6 @@
                   <span class="tech-tag skill-highlight">AWS EC2 &amp; Nginx</span>
                   <span class="tech-tag skill-highlight">RESTful APIs</span>
                 </div>
-
-                <details class="project-details-disclosure">
-                  <summary class="project-details-summary">
-                    <span>Project details</span>
-                    <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </summary>
-                  <div class="project-details-content">
-                    <ul>
-                      <li><strong>Architecture:</strong> Engineered modular RESTful API microservices on Node.js and Express.js with structured controllers, payload validation, and CORS security.</li>
-                      <li><strong>Database &amp; RBAC:</strong> Modeled relational entities in PostgreSQL hosted on Supabase, enforcing Row-Level Security (RLS) policies and Role-Based Access Control for administrative portals.</li>
-                      <li><strong>Interactive Services:</strong> Integrated Leaflet coordinate mapping, dynamic knowledge quiz engines, and an AI conversational docent service.</li>
-                      <li><strong>Production Infrastructure:</strong> Provisioned AWS EC2 (Ubuntu Linux) with Nginx reverse proxy routing, PM2 process management, custom DNS, and automated SSL encryption.</li>
-                    </ul>
-                  </div>
-                </details>
-
                 <div class="project-actions">
                   <a href="https://onebatangas.online" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
                     <span>Live platform</span>
@@ -393,18 +369,36 @@
                     </svg>
                   </a>
                   <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm magnetic-btn">
-                    <span>GitHub profile</span>
+                    <span>GitHub</span>
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                     </svg>
                   </a>
+  
+                  <details class="project-details-disclosure">
+                    <summary class="project-details-summary">
+                      <span>Details</span>
+                      <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </summary>
+                    <div class="project-details-content">
+                      <ul>
+                        <li><strong>My role:</strong> Project Leader &amp; Full-Stack Developer. Architected the Node.js/Express REST APIs, structured the Supabase PostgreSQL database schema with role-based security, and deployed the production stack on AWS EC2.</li>
+                        <li><strong>Architecture:</strong> Engineered modular RESTful API microservices on Node.js and Express.js with structured controllers, payload validation, and CORS security.</li>
+                        <li><strong>Database &amp; RBAC:</strong> Modeled relational entities in PostgreSQL hosted on Supabase, enforcing Row-Level Security (RLS) policies and Role-Based Access Control for administrative portals.</li>
+                        <li><strong>Interactive Services:</strong> Integrated Leaflet coordinate mapping, dynamic knowledge quiz engines, and an AI conversational docent service.</li>
+                        <li><strong>Production Infrastructure:</strong> Provisioned AWS EC2 (Ubuntu Linux) with Nginx reverse proxy routing, PM2 process management, custom DNS, and automated SSL encryption.</li>
+                      </ul>
+                    </div>
+                  </details>
                 </div>
               </div>
             </div>
           </article>
 
           <!-- FEATURED PROJECT 2: FEDELICIOUS WINGS -->
-          <article class="code-window project-card featured-card" data-tilt>
+          <article class="code-window project-card project-slide">
             <div class="window-header">
               <div class="window-dots">
                 <span class="dot dot-red"></span>
@@ -442,16 +436,12 @@
 
               <div class="project-details">
                 <div class="project-meta">
-                  <span class="project-category">Full-Stack Enterprise &bull; System Integration Project</span>
+                  <span class="project-category">Full-Stack &bull; System Integration</span>
                   <h3 class="project-title">Fedelicious Wings: Ordering and Reservation System</h3>
                 </div>
 
                 <p class="project-desc">
                   Built for restaurant diners and staff to streamline table reservations, real-time online ordering, and verified payment tracking.
-                </p>
-
-                <p class="project-contribution">
-                  <strong>Contribution:</strong> Project Leader &amp; Full-Stack Developer — Engineered the high-throughput ASP.NET Web API backend in C#, structured the Microsoft SQL Server database using Dapper ORM with stored procedures, and integrated Gmail SMTP notifications.
                 </p>
 
                 <div class="project-tech-tags">
@@ -460,164 +450,246 @@
                   <span class="tech-tag skill-highlight">Dapper ORM</span>
                   <span class="tech-tag skill-highlight">REST APIs</span>
                 </div>
-
-                <details class="project-details-disclosure">
-                  <summary class="project-details-summary">
-                    <span>Project details</span>
-                    <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </summary>
-                  <div class="project-details-content">
-                    <ul>
-                      <li><strong>Backend Architecture:</strong> Developed a multi-tier C# RESTful API using ASP.NET Web API, applying separation of concerns, repository patterns, and typed DTOs.</li>
-                      <li><strong>Database Design:</strong> Designed normalized relational tables in Microsoft SQL Server, optimizing data queries with Dapper micro-ORM and pre-compiled stored procedures.</li>
-                      <li><strong>Transactional Workflow:</strong> Integrated automated email notifications for reservation and order status updates using Gmail SMTP.</li>
-                      <li><strong>Order &amp; Payment Flow:</strong> Implemented a customer-facing GCash receipt upload interface backed by manual cashier reference verification and state tracking.</li>
-                    </ul>
-                  </div>
-                </details>
-
                 <div class="project-actions">
                   <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
-                    <span>GitHub profile</span>
+                    <span>GitHub</span>
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                     </svg>
                   </a>
                   <a href="#contact" class="btn btn-outline btn-sm magnetic-btn">
-                    <span>Contact for demo</span>
+                    <span>Request demo</span>
+                  </a>
+  
+                  <details class="project-details-disclosure">
+                    <summary class="project-details-summary">
+                      <span>Details</span>
+                      <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </summary>
+                    <div class="project-details-content">
+                      <ul>
+                        <li><strong>My role:</strong> Project Leader &amp; Full-Stack Developer. Engineered the high-throughput ASP.NET Web API backend in C#, structured the Microsoft SQL Server database using Dapper ORM with stored procedures, and integrated Gmail SMTP notifications.</li>
+                        <li><strong>Backend Architecture:</strong> Developed a multi-tier C# RESTful API using ASP.NET Web API, applying separation of concerns, repository patterns, and typed DTOs.</li>
+                        <li><strong>Database Design:</strong> Designed normalized relational tables in Microsoft SQL Server, optimizing data queries with Dapper micro-ORM and pre-compiled stored procedures.</li>
+                        <li><strong>Transactional Workflow:</strong> Integrated automated email notifications for reservation and order status updates using Gmail SMTP.</li>
+                        <li><strong>Order &amp; Payment Flow:</strong> Implemented a customer-facing GCash receipt upload interface backed by manual cashier reference verification and state tracking.</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: SMART RFID ATTENDANCE SYSTEM -->
+          <article class="code-window project-card project-slide">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="window-tabs">
+                <span class="tab active"><span class="tab-accent">03.</span> esp32-rfid.ino</span>
+              </div>
+              <span class="project-badge badge-iot">IoT &bull; Hardware</span>
+            </div>
+
+            <div class="project-inner">
+              <div class="project-img-wrapper">
+                <div class="img-placeholder-container project-placeholder" data-filename="images/project-rfid.jpg" data-size="1280x720">
+                  <div class="placeholder-overlay">
+                    <span class="placeholder-filename">images/project-rfid.jpg</span>
+                    <span class="placeholder-dimension">1280 × 720 px</span>
+                  </div>
+                  <img src="images/project-rfid.jpg" alt="Smart RFID Attendance System" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
+                </div>
+              </div>
+
+              <div class="project-details">
+                <div class="project-meta">
+                  <span class="project-category">IoT &bull; Hardware Project</span>
+                  <h3 class="project-title">Smart RFID Attendance System</h3>
+                </div>
+
+                <p class="project-desc">
+                  A classroom attendance terminal: students tap their RFID card, the ESP32 checks the card's UID and sends the record over Wi-Fi to a Supabase database in real time. An LCD, green and red LEDs, and a buzzer confirm every scan.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">ESP32</span>
+                  <span class="tech-tag">RC522 RFID</span>
+                  <span class="tech-tag">Supabase</span>
+                  <span class="tech-tag">Wi-Fi + HTTP</span>
+                  <span class="tech-tag">I2C LCD</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm magnetic-btn">
+                    <span>GitHub</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </a>
+  
+                  <details class="project-details-disclosure">
+                    <summary class="project-details-summary">
+                      <span>Details</span>
+                      <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </summary>
+                    <div class="project-details-content">
+                      <ul>
+                        <li><strong>Hardware:</strong> ESP32, RC522 RFID reader, 16×2 I2C LCD, green and red LEDs, and a buzzer, wired on a breadboard and housed in a custom enclosure.</li>
+                        <li><strong>Firmware:</strong> Arduino libraries WiFi, MFRC522, SPI, LiquidCrystal I2C, and HTTPClient. Reads each card's UID, validates it, and posts the attendance record to Supabase over HTTP.</li>
+                        <li><strong>Feedback:</strong> The LCD shows "Tap RFID Card" and the scan result. Green LED and a short beep mean success; red LED and an alert mean an invalid card.</li>
+                        <li><strong>Problems solved:</strong> Fixed a blank LCD caused by swapped SDA/SCL wiring, fixed the RFID reader not reading cards by correcting the SPI pin assignments, and added Wi-Fi reconnection logic for unstable connections.</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: MC BANK: MOBILE BANKING APP UI -->
+          <article class="code-window project-card project-slide">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="window-tabs">
+                <span class="tab active"><span class="tab-accent">04.</span> mc-bank.ui</span>
+              </div>
+              <span class="project-badge badge-ui">Mobile UI</span>
+            </div>
+
+            <div class="project-inner">
+              <div class="project-img-wrapper">
+                <div class="img-placeholder-container project-placeholder" data-filename="images/project-mcbank.jpg" data-size="1280x720">
+                  <div class="placeholder-overlay">
+                    <span class="placeholder-filename">images/project-mcbank.jpg</span>
+                    <span class="placeholder-dimension">1280 × 720 px</span>
+                  </div>
+                  <img src="images/project-mcbank.jpg" alt="MC Bank Mobile App UI" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
+                </div>
+              </div>
+
+              <div class="project-details">
+                <div class="project-meta">
+                  <span class="project-category">Mobile UI &bull; App Design</span>
+                  <h3 class="project-title">MC Bank: Mobile Banking App UI</h3>
+                </div>
+
+                <p class="project-desc">
+                  A mobile banking app designed in Figma, from onboarding and passcode login to checking your balance, sending money, freezing a card, and tracking monthly spending.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Figma</span>
+                  <span class="tech-tag">UI/UX Design</span>
+                  <span class="tech-tag">Mobile</span>
+                  <span class="tech-tag">Prototyping</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm magnetic-btn">
+                    <span>GitHub</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </a>
+  
+                  <details class="project-details-disclosure">
+                    <summary class="project-details-summary">
+                      <span>Details</span>
+                      <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </summary>
+                    <div class="project-details-content">
+                      <ul>
+                        <li><strong>Onboarding and login:</strong> Get Started screen, sign-in and sign-up with full name, email, password and terms agreement, then a 4-digit passcode screen.</li>
+                        <li><strong>Home:</strong> Total balance card, quick Send and Deposit actions, recent transactions, and a bottom navigation bar.</li>
+                        <li><strong>Send money:</strong> Enter amount, recipient name and account number, confirm the recipient, then a success screen with the transfer date.</li>
+                        <li><strong>Cards and spending:</strong> Card details, a My Card screen with a Freeze toggle, and a monthly spending chart with categories such as Shopping and Food.</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: SIMPLE LINEAR REGRESSION TOOL -->
+          <article class="code-window project-card project-slide">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="window-tabs">
+                <span class="tab active"><span class="tab-accent">05.</span> regression.tool</span>
+              </div>
+              <span class="project-badge badge-math">Statistics</span>
+            </div>
+
+            <div class="project-inner">
+              <div class="project-img-wrapper">
+                <div class="img-placeholder-container project-placeholder" data-filename="images/project-regression.jpg" data-size="1280x720">
+                  <div class="placeholder-overlay">
+                    <span class="placeholder-filename">images/project-regression.jpg</span>
+                    <span class="placeholder-dimension">1280 × 720 px</span>
+                  </div>
+                  <img src="images/project-regression.jpg" alt="Simple Linear Regression Tool" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
+                </div>
+              </div>
+
+              <div class="project-details">
+                <div class="project-meta">
+                  <span class="project-category">Statistics &bull; Final Project</span>
+                  <h3 class="project-title">Simple Linear Regression Tool</h3>
+                </div>
+
+                <p class="project-desc">
+                  An interactive web tool for bivariate analysis: add points by typing or clicking the chart, compute the least-squares line (Y = a + bX) and Pearson correlation (r), see the strength rating and computation steps, then export results as CSV or JSON.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Chart.js</span>
+                  <span class="tech-tag">HTML &amp; CSS</span>
+                  <span class="tech-tag">Statistics</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://adv-stat-finals.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm magnetic-btn">
+                    <span>Live site</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm magnetic-btn">
+                    <span>GitHub</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                   </a>
                 </div>
               </div>
             </div>
           </article>
 
-        </div>
-
-        <!-- Compact More Projects Sub-Section -->
-        <div class="other-projects-wrapper">
-          <div class="other-projects-header">
-            <h3 class="other-projects-title">// More Projects</h3>
-            <p class="other-projects-sub">Additional software, hardware integration, and statistical tools</p>
+            </div>
           </div>
 
-          <div class="other-projects-grid">
-            
-            <!-- PROJECT 3: SMART RFID -->
-            <article class="code-window other-project-card" data-tilt>
-              <div class="window-header">
-                <div class="window-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <div class="window-tabs">
-                  <span class="tab active"><span class="tab-accent">03.</span> esp32-rfid.ino</span>
-                </div>
-                <span class="project-badge badge-iot">IoT &bull; Hardware</span>
-              </div>
-              <div class="other-project-body">
-                <div class="img-placeholder-container other-project-placeholder" data-filename="images/project-rfid.jpg" data-size="1280x720">
-                  <div class="placeholder-overlay">
-                    <span class="placeholder-filename">images/project-rfid.jpg</span>
-                  </div>
-                  <img src="images/project-rfid.jpg" alt="Smart RFID Attendance System" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
-                </div>
-                <h4 class="other-card-title">Smart RFID Attendance System</h4>
-                <p class="other-card-desc">
-                  An automated contactless attendance logging terminal bridging an ESP32 microcontroller and RC522 RFID reader with Supabase cloud database tables via Wi-Fi HTTP requests, with LCD and buzzer status indicators.
-                </p>
-                <div class="other-card-tags">
-                  <span class="tech-tag">ESP32</span>
-                  <span class="tech-tag skill-highlight">Supabase</span>
-                  <span class="tech-tag">RC522 RFID</span>
-                  <span class="tech-tag">HTTP APIs</span>
-                </div>
-                <div class="other-card-footer">
-                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="link-btn">
-                    <span>GitHub profile</span> &rarr;
-                  </a>
-                </div>
-              </div>
-            </article>
+          <button type="button" class="carousel-btn carousel-next" id="carousel-next" aria-label="Next project">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
 
-            <!-- PROJECT 4: MC BANK -->
-            <article class="code-window other-project-card" data-tilt>
-              <div class="window-header">
-                <div class="window-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <div class="window-tabs">
-                  <span class="tab active"><span class="tab-accent">04.</span> mc-bank.ui</span>
-                </div>
-                <span class="project-badge badge-ui">Mobile UI</span>
-              </div>
-              <div class="other-project-body">
-                <div class="img-placeholder-container other-project-placeholder" data-filename="images/project-mcbank.jpg" data-size="1280x720">
-                  <div class="placeholder-overlay">
-                    <span class="placeholder-filename">images/project-mcbank.jpg</span>
-                  </div>
-                  <img src="images/project-mcbank.jpg" alt="MC Bank Mobile App UI" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
-                </div>
-                <h4 class="other-card-title">MC Bank: Mobile Banking App UI</h4>
-                <p class="other-card-desc">
-                  A modern mobile banking application interface prototype focused on financial workflows: account authorization, virtual card management, QR interaction flows, and client-side transaction activity charts.
-                </p>
-                <div class="other-card-tags">
-                  <span class="tech-tag skill-highlight">JavaScript</span>
-                  <span class="tech-tag">CSS3</span>
-                  <span class="tech-tag skill-highlight">Responsive UI</span>
-                  <span class="tech-tag">Interactive Design</span>
-                </div>
-                <div class="other-card-footer">
-                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="link-btn">
-                    <span>GitHub profile</span> &rarr;
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 5: LINEAR REGRESSION TOOL -->
-            <article class="code-window other-project-card" data-tilt>
-              <div class="window-header">
-                <div class="window-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <div class="window-tabs">
-                  <span class="tab active"><span class="tab-accent">05.</span> regression.tool</span>
-                </div>
-                <span class="project-badge badge-math">Statistics</span>
-              </div>
-              <div class="other-project-body">
-                <div class="img-placeholder-container other-project-placeholder" data-filename="images/project-regression.jpg" data-size="1280x720">
-                  <div class="placeholder-overlay">
-                    <span class="placeholder-filename">images/project-regression.jpg</span>
-                  </div>
-                  <img src="images/project-regression.jpg" alt="Simple Linear Regression Tool" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
-                </div>
-                <h4 class="other-card-title">Simple Linear Regression Tool</h4>
-                <p class="other-card-desc">
-                  An interactive web tool for bivariate statistical analysis, dynamically plotting coordinate datasets, computing least-squares regression lines ($y = mx + b$), and interpreting Pearson correlation ($r$) in real time.
-                </p>
-                <div class="other-card-tags">
-                  <span class="tech-tag skill-highlight">JavaScript</span>
-                  <span class="tech-tag">Canvas 2D</span>
-                  <span class="tech-tag">Statistical Math</span>
-                  <span class="tech-tag">Data Modeling</span>
-                </div>
-                <div class="other-card-footer">
-                  <a href="https://github.com/markluis27" target="_blank" rel="noopener noreferrer" class="link-btn">
-                    <span>GitHub profile</span> &rarr;
-                  </a>
-                </div>
-              </div>
-            </article>
-
+          <div class="carousel-footer">
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <p class="carousel-counter" aria-live="polite"><span id="carousel-current">01</span> / <span id="carousel-total">05</span></p>
           </div>
         </div>
 
@@ -657,7 +729,7 @@
 
           <!-- Preserved Workspace / Action Photo Slot -->
           <div class="open-about-portrait">
-            <div class="img-placeholder-container about-placeholder" data-filename="images/about.jpg" data-size="1000x800">
+            <div class="img-placeholder-container about-placeholder" data-filename="images/about.jpg" data-size="1200x1600">
               <div class="placeholder-overlay">
                 <div class="placeholder-icon">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -667,10 +739,10 @@
                   </svg>
                 </div>
                 <span class="placeholder-filename">images/about.jpg</span>
-                <span class="placeholder-dimension">1000 × 800 px</span>
+                <span class="placeholder-dimension">1200 × 1600 px</span>
                 <span class="placeholder-note">Workspace / Action Photo Slot</span>
               </div>
-              <img src="images/about.jpg" alt="Mark Luis Workspace" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
+              <img src="images/about.jpg" alt="Mark Luis Fulinara in Tanauan City, wearing his FAITH Colleges ID lace" class="placeholder-img" loading="lazy" onerror="this.style.display='none';">
             </div>
           </div>
         </div>
@@ -823,7 +895,6 @@
           <span class="supporting-title">// Supporting Technologies &amp; Tools:</span>
           <div class="supporting-tags">
             <span class="supporting-chip">Three.js / WebGL</span>
-            <span class="supporting-chip">Python</span>
             <span class="supporting-chip">ESP32 &amp; RFID Microcontrollers</span>
             <span class="supporting-chip">Linux Bash / CLI</span>
             <span class="supporting-chip">VS Code &amp; Visual Studio</span>
@@ -982,6 +1053,25 @@
 
                 <div class="contact-card-item">
                   <div class="contact-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div class="contact-item-text">
+                    <span class="contact-label">Phone</span>
+                    <a href="tel:+639917339812" class="contact-value link-accent">0991 733 9812</a>
+                  </div>
+                  <a href="tel:+639917339812" class="social-arrow-btn" aria-label="Call 0991 733 9812">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+
+                <div class="contact-card-item">
+                  <div class="contact-icon-box">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
@@ -1095,6 +1185,68 @@
       </div>
     </div>
   </footer>
+
+  <!-- TALK TO MARK: visitors ask questions and hear pre-written answers in Mark's (AI-generated) voice.
+       data-endpoint: where the chat proxy lives. Keep "/api/chat" when the site is hosted on Vercel;
+       use the full proxy URL if the site stays on GitHub Pages. The API key is never in this file. -->
+  <div class="chatbot" id="chatbot" data-endpoint="/api/chat">
+    <button type="button" class="chatbot-launcher" id="chatbot-launcher" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Talk to Mark">
+      <span class="chatbot-launcher-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="10" x2="4" y2="14"></line><line x1="8" y1="6" x2="8" y2="18"></line><line x1="12" y1="3" x2="12" y2="21"></line><line x1="16" y1="7" x2="16" y2="17"></line><line x1="20" y1="10" x2="20" y2="14"></line></svg></span>
+      <span class="chatbot-launcher-text">Talk to Mark</span>
+    </button>
+
+    <section class="code-window chatbot-panel" id="chatbot-panel" role="dialog" aria-label="Talk to Mark" hidden>
+      <div class="window-header">
+        <div class="chatbot-identity">
+          <div class="chatbot-identity-text">
+            <span class="chatbot-name">Mark Luis Fulinara</span>
+            <span class="chatbot-status" id="chatbot-status">Online</span>
+          </div>
+        </div>
+        <button type="button" class="chatbot-icon-btn chatbot-voice" id="chatbot-voice" aria-pressed="true" aria-label="Voice replies on" title="Voice replies on">
+          <svg class="icon-voice-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+            <path d="M19 5a10 10 0 0 1 0 14"></path>
+          </svg>
+          <svg class="icon-voice-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="22" y1="9" x2="16" y2="15"></line>
+            <line x1="16" y1="9" x2="22" y2="15"></line>
+          </svg>
+        </button>
+        <button type="button" class="chatbot-close" id="chatbot-close" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="chatbot-messages" id="chatbot-messages" aria-live="polite">
+        <div class="chat-msg chat-msg-bot" id="chatbot-greeting" data-audio="audio/answers/greeting.mp3">
+          <p>Hi, I'm Mark Luis Fulinara, a BS Information Technology student and aspiring full-stack developer from Tanauan City, Batangas. Ask me about my skills, my projects, or my internship plans.</p>
+        </div>
+        <div class="chatbot-suggestions" id="chatbot-suggestions">
+          <button type="button" class="chatbot-chip">What did you build for One Batangas?</button>
+          <button type="button" class="chatbot-chip">What's your back-end experience?</button>
+          <button type="button" class="chatbot-chip">Are you available for an internship?</button>
+        </div>
+      </div>
+
+      <form class="chatbot-form" id="chatbot-form" autocomplete="off">
+        <label for="chatbot-input" class="visually-hidden">Message Mark</label>
+        <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me anything about my work…" maxlength="600" required>
+        <button type="submit" class="chatbot-send" id="chatbot-send" aria-label="Send message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+      <p class="chatbot-note">You're talking to an AI version of me: answers I wrote, spoken in an AI copy of my voice.</p>
+    </section>
+  </div>
 
   <!-- GSAP & ScrollTrigger from CDN with robust fallbacks -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

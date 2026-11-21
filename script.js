@@ -499,6 +499,159 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
 
   /* ==========================================================================
+     4b. PROJECTS CAROUSEL (prev/next buttons, dots, keys, swipe)
+     ========================================================================== */
+  (function initProjectCarousel() {
+    const carousel = document.getElementById('project-carousel');
+    const track = document.getElementById('carousel-track');
+    const viewport = document.getElementById('carousel-viewport');
+    if (!carousel || !track || !viewport) return;
+
+    const slides = Array.from(track.querySelectorAll('.project-slide'));
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsWrap = document.getElementById('carousel-dots');
+    const currentLabel = document.getElementById('carousel-current');
+    const totalLabel = document.getElementById('carousel-total');
+    const total = slides.length;
+    const pad = (n) => String(n).padStart(2, '0');
+    let index = 0;
+
+    if (totalLabel) totalLabel.textContent = pad(total);
+
+    // Dots
+    const dots = slides.map((slide, i) => {
+      const title = slide.querySelector('.project-title');
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot';
+      dot.setAttribute('aria-label', `Show project ${i + 1}: ${title ? title.textContent : ''}`);
+      dot.addEventListener('click', () => goTo(i));
+      if (dotsWrap) dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    // "Details": lock the card's height while open so the text scrolls inside it
+    // instead of the card growing; unlock (no scrolling) when it is closed.
+    slides.forEach((slide) => {
+      const details = slide.querySelector('.project-details-disclosure');
+      const body = slide.querySelector('.project-inner');
+      if (!details || !body) return;
+      const summary = details.querySelector('summary');
+      // Measure on click, before the list opens (the toggle event fires after it has already grown)
+      summary.addEventListener('click', () => {
+        if (!details.open && !stackedLayout.matches) {
+          body.style.height = body.offsetHeight + 'px';
+          slide.classList.add('details-open');
+        }
+      });
+      details.addEventListener('toggle', () => {
+        if (!details.open) {
+          body.style.height = '';
+          slide.classList.remove('details-open');
+          slide.querySelector('.project-details').scrollTop = 0;
+        }
+      });
+    });
+
+    slides.forEach((slide, i) => {
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `${i + 1} of ${total}`);
+      // Clear the entrance class once its animations finish
+      slide.addEventListener('animationend', (e) => {
+        if (e.target.closest('.project-details') || e.target.classList.contains('project-img-wrapper')) {
+          const last = slide.querySelector('.project-details > :last-child');
+          if (e.target === last) slide.classList.remove('is-entering');
+        }
+      });
+    });
+
+    // On laptops/desktops every card has the same CSS height, so the frame sizes itself.
+    // On tablets/phones cards stack and differ in height, so the frame follows the active card.
+    const stackedLayout = window.matchMedia('(max-width: 960px)');
+    function fitHeight() {
+      if (!stackedLayout.matches) {
+        viewport.style.height = '';
+        return;
+      }
+      const active = slides[index];
+      if (active) viewport.style.height = (active.offsetHeight + 28) + 'px';
+    }
+    stackedLayout.addEventListener('change', () => requestAnimationFrame(fitHeight));
+
+    function render(direction) {
+      track.style.setProperty('--index', index);
+      carousel.style.setProperty('--dir', direction);
+      slides.forEach((slide, i) => {
+        const isActive = i === index;
+        slide.classList.toggle('is-active', isActive);
+        // Off-screen slides are not reachable by keyboard or screen readers
+        if (isActive) slide.removeAttribute('inert');
+        else slide.setAttribute('inert', '');
+        slide.setAttribute('aria-hidden', String(!isActive));
+      });
+      // Load the current slide's image and its neighbours ahead of time so arrows never show an empty frame
+      [index, (index + 1) % total, (index - 1 + total) % total].forEach((i) => {
+        const img = slides[i].querySelector('img[loading="lazy"]');
+        if (img) img.loading = 'eager';
+      });
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+      if (currentLabel) currentLabel.textContent = pad(index + 1);
+      fitHeight();
+    }
+
+    function goTo(target, direction) {
+      const next = (target + total) % total;
+      if (next === index) return;
+      const dir = direction || (next > index ? 1 : -1);
+      index = next;
+      const slide = slides[index];
+      slide.classList.remove('is-entering');
+      void slide.offsetWidth; // restart the entrance animation
+      slide.classList.add('is-entering');
+      render(dir);
+    }
+
+    const next = () => goTo(index + 1, 1);
+    const prev = () => goTo(index - 1, -1);
+
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    viewport.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    });
+
+    // Touch swipe (horizontal only; vertical scrolling stays native)
+    let startX = 0, startY = 0, tracking = false;
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+    viewport.addEventListener('touchend', (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        dx < 0 ? next() : prev();
+      }
+    }, { passive: true });
+
+    // Keep the viewport height in sync (resize, images loading, details opening)
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(fitHeight);
+      slides.forEach(slide => ro.observe(slide));
+    }
+    window.addEventListener('resize', fitHeight);
+
+    render(1);
+  })();
+
+  /* ==========================================================================
      5. 3D CARD TILT & MAGNETIC HOVER (DESKTOP)
      ========================================================================== */
   if (window.matchMedia('(pointer: fine)').matches) {
@@ -649,7 +802,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Features:
        1) BRUSH / HOVER TRAIL (Marks disappear after 3 seconds):
           - Circle radius reduced to 42px (bawas pa) for a nimble, refined lens
-          - Moving cursor or dragging finger paints marks that reveal images/pxel.jpg
+          - Moving cursor or dragging finger paints marks that reveal images/w.jpg
           - Each mark smoothly fades out over exactly 3 seconds (3000ms)
           - Interpolates between mouse points for buttery-smooth strokes
           - Glowing neon ring follows the pointer position with smooth lerp
@@ -681,17 +834,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloadFulinara = new Image();
   preloadFulinara.src = 'images/fulinara.png';
   const preloadPxel = new Image();
-  preloadPxel.src = 'images/pxel.jpg';
-  preloadPxel.onerror = () => {
-    preloadPxel.src = 'images/pixel.jpg';
-  };
+  preloadPxel.src = 'images/w.jpg';
 
-  if (imgPxel) {
-    imgPxel.addEventListener('error', function onPxelErr() {
-      if (!this.src.includes('pixel.jpg')) {
-        this.src = 'images/pixel.jpg';
-      }
-    });
+  // Draw an image like CSS `object-fit: cover` (centered crop, no stretching),
+  // so canvas effects line up exactly with the <img> layers underneath.
+  function drawImageCover(ctx, img, dw, dh) {
+    const iw = img.naturalWidth;
+    const ih = img.naturalHeight;
+    const scale = Math.max(dw / iw, dh / ih);
+    const sw = dw / scale;
+    const sh = dh / scale;
+    ctx.drawImage(img, (iw - sw) / 2, (ih - sh) / 2, sw, sh, 0, 0, dw, dh);
   }
 
   // Brush trail & spotlight configuration
@@ -868,7 +1021,7 @@ document.addEventListener('DOMContentLoaded', () => {
           : ((imgFulinara && imgFulinara.complete && imgFulinara.naturalWidth > 0) ? imgFulinara : null);
 
         if (source) {
-          ctx.drawImage(source, 0, 0, frameWidth, frameHeight);
+          drawImageCover(ctx, source, frameWidth, frameHeight);
           ctx.globalCompositeOperation = 'destination-in';
           ctx.drawImage(offMaskCanvas, 0, 0);
           ctx.globalCompositeOperation = 'source-over';
@@ -910,7 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
         off.height = sh;
         const octx = off.getContext('2d');
         octx.imageSmoothingEnabled = false;
-        octx.drawImage(source, 0, 0, sw, sh);
+        drawImageCover(octx, source, sw, sh);
 
         ctx.imageSmoothingEnabled = false;
         ctx.globalAlpha = 1 - p * 0.35;
@@ -1066,3 +1219,261 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
+/* ==========================================================================
+   AI ASSISTANT (ask-mark.sh)
+   Talks to the server-side proxy at data-endpoint. The Groq API key lives on
+   the server only (api/chat.js); nothing secret is in this file.
+   ========================================================================== */
+(function initChatbot() {
+  const root = document.getElementById('chatbot');
+  if (!root) return;
+
+  const endpoint = root.dataset.endpoint || '/api/chat';
+  const launcher = document.getElementById('chatbot-launcher');
+  const panel = document.getElementById('chatbot-panel');
+  const closeBtn = document.getElementById('chatbot-close');
+  const list = document.getElementById('chatbot-messages');
+  const suggestions = document.getElementById('chatbot-suggestions');
+  const form = document.getElementById('chatbot-form');
+  const input = document.getElementById('chatbot-input');
+  const sendBtn = document.getElementById('chatbot-send');
+
+  const history = []; // { role: 'user' | 'assistant', content }
+  let busy = false;
+
+  function openPanel() {
+    panel.hidden = false;
+    root.classList.add('is-open');
+    launcher.setAttribute('aria-expanded', 'true');
+    input.focus();
+  }
+  function closePanel() {
+    stopAudio();
+    panel.hidden = true;
+    root.classList.remove('is-open');
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.focus();
+  }
+
+  launcher.addEventListener('click', () => (panel.hidden ? openPanel() : closePanel()));
+  closeBtn.addEventListener('click', closePanel);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel.hidden) closePanel();
+  });
+
+  function escapeHtml(text) {
+    return text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  // Escaped text, with emails and URLs turned into links
+  function linkify(text) {
+    return escapeHtml(text)
+      .replace(/\*\*(.+?)\*\*/g, '$1')
+      .replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
+      .replace(/(^|[\s(])((?:github\.com|onebatangas\.online|adv-stat-finals\.vercel\.app)[^\s<)]*?)(?=[.,]?(?:\s|$))/g, '$1<a href="https://$2" target="_blank" rel="noopener noreferrer">$2</a>')
+      .replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g, '<a href="mailto:$1">$1</a>')
+      .replace(/\b(0\d{3} \d{3} \d{4})\b/g, (m, n) => `<a href="tel:+63${n.replace(/\s/g, '').slice(1)}">${n}</a>`);
+  }
+
+  // Plain text with "- " bullets -> paragraphs and lists
+  function formatReply(text) {
+    const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    let html = '';
+    let inList = false;
+    for (const line of lines) {
+      const bullet = line.match(/^[-*•]\s+(.*)$/);
+      if (bullet) {
+        if (!inList) { html += '<ul>'; inList = true; }
+        html += `<li>${linkify(bullet[1])}</li>`;
+      } else {
+        if (inList) { html += '</ul>'; inList = false; }
+        html += `<p>${linkify(line)}</p>`;
+      }
+    }
+    if (inList) html += '</ul>';
+    return html;
+  }
+
+  /* ---- Voice: pre-recorded answers in Mark's voice (audio/answers/<id>.mp3) ---- */
+  const voiceBtn = document.getElementById('chatbot-voice');
+  let voiceOn = true;
+  try { voiceOn = sessionStorage.getItem('askMarkVoice') !== 'off'; } catch { /* storage blocked */ }
+  let playing = null; // { audio, btn }
+
+  function setVoice(on) {
+    voiceOn = on;
+    try { sessionStorage.setItem('askMarkVoice', on ? 'on' : 'off'); } catch { /* ignore */ }
+    if (voiceBtn) {
+      voiceBtn.setAttribute('aria-pressed', String(on));
+      const label = on ? 'Voice replies on' : 'Voice replies off';
+      voiceBtn.setAttribute('aria-label', label);
+      voiceBtn.title = label;
+    }
+    if (!on) stopAudio();
+  }
+  if (voiceBtn) voiceBtn.addEventListener('click', () => setVoice(!voiceOn));
+  setVoice(voiceOn);
+
+  // One shared player. Browsers (Safari/iOS especially) only allow sound on an element
+  // that was started during a click, so it is "unlocked" with a silent clip on the
+  // visitor's first click and then reused for every answer.
+  const player = new Audio();
+  player.preload = 'auto';
+  const SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=';
+  let unlocked = false;
+  function unlockAudio() {
+    if (unlocked) return;
+    unlocked = true;
+    player.src = SILENT;
+    const p = player.play();
+    if (p && p.catch) p.catch(() => { unlocked = false; });
+  }
+
+  function stopAudio() {
+    player.pause();
+    if (!playing) return;
+    const btn = playing.btn;
+    playing = null;
+    markPlaying(btn, false);
+  }
+
+  const statusEl = document.getElementById('chatbot-status');
+  function setStatus(text) { if (statusEl) statusEl.textContent = text; }
+
+  function markPlaying(btn, on) {
+    setStatus(on ? 'Speaking…' : 'Online');
+    root.classList.toggle('is-speaking', on);
+    if (!btn) return;
+    btn.classList.toggle('is-playing', on);
+    btn.setAttribute('aria-label', on ? 'Stop voice' : "Play in Mark's voice");
+  }
+
+  player.addEventListener('ended', () => { if (playing) stopAudio(); });
+  player.addEventListener('error', () => {
+    if (!playing) return; // ignore the silent unlock clip
+    const btn = playing.btn;
+    stopAudio();
+    if (btn) btn.hidden = true; // no recording for this answer
+  });
+
+  function playAudio(src, btn) {
+    stopAudio();
+    unlocked = true; // started from a click, so this element may play from now on
+    playing = { src, btn };
+    markPlaying(btn, true);
+    player.src = src;
+    player.currentTime = 0;
+    const p = player.play();
+    if (p && p.catch) p.catch(() => { if (playing && playing.btn === btn) stopAudio(); });
+  }
+
+  function attachVoice(el, src, autoplay) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'chat-play';
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.5 8.5a5 5 0 0 1 0 7"></path></svg><span>Listen</span>';
+    markPlaying(btn, false);
+    btn.addEventListener('click', () => {
+      if (playing && playing.btn === btn) stopAudio();
+      else playAudio(src, btn);
+    });
+    el.appendChild(btn);
+    if (autoplay && voiceOn) playAudio(src, btn);
+  }
+
+  function addMessage(kind, content, audio) {
+    const el = document.createElement('div');
+    el.className = `chat-msg chat-msg-${kind}`;
+    if (kind === 'bot') el.innerHTML = formatReply(content);
+    else el.textContent = content;
+    list.appendChild(el);
+    if (kind === 'bot' && audio) attachVoice(el, audio, true);
+    list.scrollTop = list.scrollHeight;
+    return el;
+  }
+
+  // Greeting: gets a Listen button, and plays the first time the chat is opened
+  const greeting = document.getElementById('chatbot-greeting');
+  let greeted = false;
+  if (greeting && greeting.dataset.audio) attachVoice(greeting, greeting.dataset.audio, false);
+  launcher.addEventListener('click', () => {
+    if (!greeted && !panel.hidden && greeting) {
+      greeted = true;
+      const btn = greeting.querySelector('.chat-play');
+      if (voiceOn && btn) playAudio(greeting.dataset.audio, btn);
+    }
+  });
+
+  function showTyping() {
+    const el = document.createElement('div');
+    el.className = 'chat-msg chat-msg-bot chat-typing';
+    el.setAttribute('aria-label', 'Mark is typing');
+    el.innerHTML = '<span></span><span></span><span></span>';
+    list.appendChild(el);
+    list.scrollTop = list.scrollHeight;
+    return el;
+  }
+
+  function setBusy(state) {
+    busy = state;
+    sendBtn.disabled = state;
+    input.disabled = state;
+  }
+
+  async function ask(question) {
+    const text = question.trim();
+    if (!text || busy) return;
+
+    stopAudio(); // a new question interrupts whatever Mark is saying
+    if (suggestions) suggestions.remove();
+    addMessage('user', text);
+    history.push({ role: 'user', content: text });
+    input.value = '';
+    setBusy(true);
+    const typing = showTyping();
+    setStatus('Typing…');
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history.slice(-8) }),
+      });
+      const data = await res.json().catch(() => ({}));
+      typing.remove();
+
+      if (!res.ok || !data.reply) {
+        history.pop(); // let the visitor retry the same question
+        addMessage('error', data.error || "I can't reply right now. Try again in a moment.");
+      } else {
+        history.push({ role: 'assistant', content: data.reply });
+        addMessage('bot', data.reply, data.audio);
+      }
+    } catch {
+      typing.remove();
+      history.pop();
+      addMessage('error', "My messages aren't getting through. Check your connection and try again.");
+    } finally {
+      setBusy(false);
+      if (!playing) setStatus('Online');
+      input.focus();
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (voiceOn) unlockAudio();
+    ask(input.value);
+  });
+
+  if (suggestions) {
+    suggestions.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chatbot-chip');
+      if (chip) {
+        if (voiceOn) unlockAudio();
+        ask(chip.textContent);
+      }
+    });
+  }
+})();

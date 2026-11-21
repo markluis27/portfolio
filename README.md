@@ -20,7 +20,7 @@ Built for **Mark Luis O. Fulinara**, an **Aspiring Full-Stack Developer** and BS
   - Animated numeric statistics counter.
   - Infinite sliding tech stack marquee ticker.
 - **Interactive Hero Portrait Brush Trail & 3-Second Fading Marks**:
-  - **Brush Trail (3-Second Fade)**: Moving your cursor or dragging a finger paints a focused pixel trail (compact 42px radius) that reveals `images/pxel.jpg`. Each mark smoothly fades out and dissolves after exactly **3 seconds**.
+  - **Brush Trail (3-Second Fade)**: Moving your cursor or dragging a finger paints a focused pixel trail (compact 42px radius) that reveals `images/w.jpg`. Each mark smoothly fades out and dissolves after exactly **3 seconds**.
   - **Neon Guide Ring**: A glowing neon green ring smoothly follows the pointer with lerp physics.
   - **Click (Full 5s Pixel Reveal)**: Clicking or tapping expands outward from the click point to cover the entire frame over 500ms, with a quick 150ms pixelation impact flash, a 5-second countdown bar, and a live second ticker (`// pixel mode, reverting in 5s`).
   - **Re-click Restart**: Clicking again during the 5s resets the countdown timer back to 5.0s without stacking.
@@ -37,14 +37,14 @@ PORTFOLIO/
 ├── index.html                    # Main HTML markup, SEO tags, structured 7 sections
 ├── style.css                     # Full styling, CSS variables, glassmorphism, responsive breakpoints
 ├── script.js                     # Canvas code rain, theme toggle, project pagination, animations
-├── Mark_Luis_Fulinara_Resume.pdf # Full verified PDF resume
-├── cv.pdf                        # Synchronized resume copy
-├── favicon.svg                   # Modern vector favicon
+├── api/
+│   ├── chat.js                   # Chatbot proxy (holds the Groq key server-side)
+│   └── _answers.js               # Every chatbot answer (text + voice script)
 ├── README.md                     # Project documentation & deployment guide
 └── images/
     ├── logo.svg                  # Brand monogram (<ML />)
     ├── fulinara.png              # Default hero portrait (800 × 1000 px)
-    ├── pxel.jpg                  # Pixel art hero portrait (800 × 1000 px)
+    ├── w.jpg                     # Black & white hero portrait (1024 × 1024 px)
     ├── about.jpg                 # Workspace / about photo (1000 × 800 px)
     ├── project-onebatangas.jpg   # One Batangas cover (1280 × 720 px)
     ├── project-fedelicious.jpg   # Fedelicious Wings cover (1280 × 720 px)
@@ -61,7 +61,7 @@ PORTFOLIO/
 ### 1. Adding Your Photos & Screenshots
 Drop your image files directly into the `images/` directory with the matching filenames:
 - `images/fulinara.png` — 800 × 1000 px (Default Hero Portrait photo)
-- `images/pxel.jpg` — 800 × 1000 px (Pixel Art version for the interactive click effect)
+- `images/w.jpg` — 1024 × 1024 px (black & white version revealed by the brush and click effect)
 - `images/about.jpg` — 1000 × 800 px (About section)
 - `images/project-onebatangas.jpg` — 1280 × 720 px (One Batangas capstone)
 - `images/project-fedelicious.jpg` — 1280 × 720 px (Fedelicious Wings)
@@ -72,8 +72,8 @@ Drop your image files directly into the `images/` directory with the matching fi
 
 > **Note:** The site's placeholder system is built so that if any image is missing, a clean dashed placeholder box displays the exact file name and size required. Once you copy the image into the folder, it will instantly display with smooth fade-in and cover styling.
 
-### 2. Updating Your Resume (CV)
-Replace `cv.pdf` in the root folder with your latest curriculum vitae or resume file. Keep the name `cv.pdf` or update the `href` in `index.html`.
+### 2. Résumé requests
+The résumé is not downloadable from the site. The "Request résumé" buttons open an email to fulinaramarkluis@gmail.com with the subject "Résumé request"; reply with the PDF.
 
 ### 3. Editing Links & Information
 - Open `index.html` and search for:
